@@ -1,0 +1,70 @@
+.careers-section {
+  background-color: var(--bg-main);
+}
+
+.careers-intro {
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+  border-top: 4px solid var(--primary);
+}
+
+.careers-intro p {
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+  color: var(--text-muted);
+}
+
+.careers-cta {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.careers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.careers-list-box {
+  padding: 40px;
+}
+
+.careers-list-box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.pill-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.pill {
+  padding: 8px 16px;
+  background-color: var(--bg-light);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 50px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.pill:hover {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+@media (max-width: 992px) {
+  .careers-grid {
+    grid-template-columns: 1fr;
+  }
+}

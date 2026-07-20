@@ -1,0 +1,60 @@
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.04);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+  padding-bottom: env(safe-area-inset-bottom); /* Support modern iOS notch padding */
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--md-sys-color-on-surface-variant);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 600;
+  gap: 4px;
+  width: 20%;
+  height: 100%;
+  transition: var(--transition);
+}
+
+.mobile-nav-item svg {
+  color: var(--md-sys-color-on-surface-variant);
+  transition: var(--transition);
+}
+
+/* Active State - Highlighted in Reddit Orange Accent */
+.mobile-nav-item.active {
+  color: var(--md-sys-color-secondary);
+}
+
+.mobile-nav-item.active svg {
+  color: var(--md-sys-color-secondary);
+  transform: translateY(-2px);
+}
+
+@media (min-width: 769px) {
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 64px !important; /* Ensure content clears sticky navigation */
+  }
+}

@@ -1,0 +1,130 @@
+.hero {
+  position: relative;
+  padding-top: 160px;
+  padding-bottom: 80px;
+  background-color: var(--bg-alt);
+}
+
+.hero-grid-split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.hero-text-content {
+  text-align: left;
+}
+
+.hero h1 {
+  font-size: 3.8rem;
+  margin-bottom: 24px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+.hero-cta {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.hero-creative-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-creative-image {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.stat-item {
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.stat-icon {
+  color: var(--secondary);
+  margin-bottom: 16px;
+}
+
+.stat-item h3 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.stat-item p {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 992px) {
+  .hero-grid-split {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+  .hero-text-content {
+    text-align: center;
+  }
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-cta {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 120px;
+  }
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+  .hero h1 {
+    font-size: 2.1rem; /* Slightly smaller to prevent title clipping */
+  }
+  .hero-cta {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 320px; /* Centered compact column container */
+    margin: 0 auto;
+  }
+  .hero-cta .btn {
+    width: 100%; /* Stacks buttons cleanly to prevent text-wrap */
+  }
+}

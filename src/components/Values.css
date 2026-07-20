@@ -1,0 +1,27 @@
+.values-section {
+  background-color: var(--bg-main);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.value-item {
+  padding: 32px;
+  border-left: 4px solid var(--primary);
+}
+
+.value-item:nth-child(even) {
+  border-left-color: var(--secondary);
+}
+
+.value-title {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.value-item p {
+  color: var(--text-muted);
+}

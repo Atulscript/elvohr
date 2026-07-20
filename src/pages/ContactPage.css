@@ -1,0 +1,111 @@
+.contact-page {
+  background-color: var(--md-sys-color-background);
+  min-height: calc(100vh - 80px);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 40px;
+  margin-top: 40px;
+  align-items: start;
+}
+
+/* M3 Card styling for panels */
+.contact-info, .contact-form-container {
+  padding: 48px;
+  background: var(--md-sys-color-surface);
+  border-radius: var(--md-sys-shape-corner-large);
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+.contact-info h3, .contact-form-container h3 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: var(--md-sys-color-primary);
+}
+
+.contact-info p {
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+.info-list {
+  list-style: none;
+}
+
+.info-list li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  font-size: 1.05rem;
+  color: var(--md-sys-color-on-surface);
+}
+
+.info-list .icon {
+  color: var(--md-sys-color-secondary);
+  flex-shrink: 0;
+}
+
+/* M3 Outlined Text Field design */
+.form-group {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: 0.88rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-sys-shape-corner-small);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  transition: var(--transition);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border: 2px solid var(--md-sys-color-primary);
+  padding: 13px 15px; /* Offset the 2px border to prevent layout shifts */
+}
+
+/* Success Card styling */
+.success-message {
+  text-align: center;
+  padding: 32px 0;
+}
+
+.success-message h3 {
+  color: var(--md-sys-color-primary);
+  margin-bottom: 12px;
+}
+
+.success-message p {
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 24px;
+}
+
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-info, .contact-form-container {
+    padding: 32px 20px;
+  }
+}
