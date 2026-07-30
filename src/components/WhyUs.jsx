@@ -39,7 +39,7 @@ const WhyUs = () => {
           </div>
           
           <div className="why-us-image-container">
-            <img src="/why-us.jpg" alt="Partner with ELVO HR" className="why-us-img" />
+            <img src={`${import.meta.env.BASE_URL}why-us.jpg`} alt="Partner with ELVO HR" className="why-us-img" />
           </div>
         </div>
       </div>

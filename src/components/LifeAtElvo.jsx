@@ -3,10 +3,10 @@ import './LifeAtElvo.css';
 
 const LifeAtElvo = () => {
   const galleryItems = [
-    { image: "/culture.jpg", title: "Culture & Events" },
-    { image: "/retreats.jpg", title: "Team Celebrations" },
-    { image: "/environment.jpg", title: "Work Environment" },
-    { image: "/hero-creative.jpg", title: "Connecting Talent" }
+    { image: `${import.meta.env.BASE_URL}culture.jpg`, title: "Culture & Events" },
+    { image: `${import.meta.env.BASE_URL}retreats.jpg`, title: "Team Celebrations" },
+    { image: `${import.meta.env.BASE_URL}environment.jpg`, title: "Work Environment" },
+    { image: `${import.meta.env.BASE_URL}hero-creative.jpg`, title: "Connecting Talent" }
   ];
 
   return (
