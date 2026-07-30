@@ -97,7 +97,7 @@
 }
 
 /* Background Gradients */
-.bfsi-theme { background: linear-gradient(135deg, #0b58a5, #083c72); }
+.bfsi-theme { background: linear-gradient(135deg, #465F96, #192C58); }
 .industrial-theme { background: linear-gradient(135deg, #2b3a4a, #1a2530); }
 .tech-theme { background: linear-gradient(135deg, #6c5ce7, #4834d4); }
 .logistic-theme { background: linear-gradient(135deg, #e67e22, #d35400); }
@@ -201,7 +201,7 @@
   position: absolute;
   top: 16px;
   right: 24px;
-  color: rgba(11, 88, 165, 0.06);
+  color: rgba(25, 44, 88, 0.06);
 }
 
 .quote-text {

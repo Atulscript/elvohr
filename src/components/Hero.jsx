@@ -23,7 +23,7 @@ const Hero = () => {
                 Search Jobs <Search size={18} />
               </Link>
               <Link to="/contact" className="btn btn-primary">
-                Partner With Us <ArrowRight size={18} />
+                Business Enquiries <ArrowRight size={18} />
               </Link>
             </div>
           </div>

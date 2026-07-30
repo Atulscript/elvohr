@@ -13,14 +13,20 @@
   margin-bottom: 50px;
 }
 
-.footer .logo {
-  color: white;
-  font-size: 2rem;
+.footer-logo-container {
+  background: white;
+  padding: 10px 24px;
+  border-radius: var(--md-sys-shape-corner-small);
+  display: inline-flex;
+  align-items: center;
   margin-bottom: 24px;
 }
 
-.footer .logo span {
-  color: var(--secondary);
+.footer-logo-img {
+  height: 45px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .office-details h4 {
@@ -88,7 +94,7 @@
   padding: 12px 28px;
   border-radius: 4px;
   transition: background 0.3s ease;
-  box-shadow: 0 4px 10px rgba(236,32,41,0.2);
+  box-shadow: 0 4px 10px rgba(70, 95, 150, 0.2);
 }
 
 .associate-btn:hover {
@@ -194,7 +200,7 @@
 
 /* 플랫폼/First Meridian Section (Darker Blue) */
 .platform-branding-section {
-  background-color: #083c72; /* Darker blue panel matching bottom branding */
+  background-color: #192C58; /* Primary Navy Blue panel matching branding */
   margin: 0 -24px;
   padding: 40px 24px;
   display: grid;

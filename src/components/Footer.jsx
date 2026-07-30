@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Footer.css';
+import logoImg from '../assets/logo.png';
 import { Mail, Phone, MapPin, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaYoutube } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -21,7 +22,9 @@ const Footer = () => {
         <div className="footer-main-grid">
           {/* Column 1: Address */}
           <div className="footer-col office-col">
-            <h2 className="logo">ELVO <span>HR</span></h2>
+            <div className="footer-logo-container">
+              <img src={logoImg} alt="ELVO HR Logo" className="footer-logo-img" />
+            </div>
             <div className="office-details">
               <h4>Registered Office</h4>
               <p>ELVO HR Services Pvt. Ltd.</p>
@@ -101,7 +104,7 @@ const Footer = () => {
         {/* Bottom Platform/First Meridian Branding Section */}
         <div className="platform-branding-section">
           <div className="platform-logo">
-            <h3>ELVO <span>Global</span></h3>
+            <h3>ELVO <span>Group</span></h3>
             <p>Building Partnerships, Creating Value</p>
           </div>
           <div className="platform-desc">

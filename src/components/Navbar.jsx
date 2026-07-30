@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { NavLink, Link } from 'react-router-dom';
 import './Navbar.css';
+import logoImg from '../assets/logo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,8 +55,8 @@ const Navbar = () => {
         {/* Main Navbar */}
         <nav className="navbar">
           <div className="container nav-container">
-            <NavLink to="/" className="logo" onClick={() => setMobileMenuOpen(false)}>
-              ELVO <span className="highlight">HR</span>
+            <NavLink to="/" className="logo-link" onClick={() => setMobileMenuOpen(false)}>
+              <img src={logoImg} alt="ELVO HR Logo" className="logo-img" />
             </NavLink>
             
             {/* Desktop Navigation links with Icons */}
@@ -116,7 +117,9 @@ const Navbar = () => {
       {/* Slide-out Mobile Navigation Drawer with Icons */}
       <div className={`mobile-nav-drawer ${mobileMenuOpen ? 'open' : ''}`}>
         <div className="drawer-header">
-          <div className="logo">ELVO <span className="highlight">HR</span></div>
+          <div className="logo-link">
+            <img src={logoImg} alt="ELVO HR Logo" className="logo-img" />
+          </div>
           <button className="close-btn" onClick={() => setMobileMenuOpen(false)}>
             <X size={26} />
           </button>

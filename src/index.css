@@ -2,21 +2,21 @@
 
 :root {
   /* Brand Color Definitions */
-  --linkedin-blue: #0a66c2;
-  --reddit-orange: #ff4500;
+  --primary-navy-blue: #192C58;
+  --accent-blue-v: #465F96;
   --linkedin-charcoal: #1d2226;
   --linkedin-bg: #f3f2ef;
 
   /* Material Design 3 Tonal Color Palette */
-  --md-sys-color-primary: var(--linkedin-blue); 
-  --md-sys-color-primary-container: #e8f3ff;
+  --md-sys-color-primary: var(--primary-navy-blue); 
+  --md-sys-color-primary-container: #e8ecf5;
   --md-sys-color-on-primary: #ffffff;
-  --md-sys-color-on-primary-container: #0a66c2;
+  --md-sys-color-on-primary-container: var(--primary-navy-blue);
   
-  --md-sys-color-secondary: var(--reddit-orange); /* Reddit Orange as Secondary */
-  --md-sys-color-secondary-container: #ffebe6;
+  --md-sys-color-secondary: var(--accent-blue-v); /* Accent Blue highlight as Secondary */
+  --md-sys-color-secondary-container: #f0f4f8;
   --md-sys-color-on-secondary: #ffffff;
-  --md-sys-color-on-secondary-container: #992900;
+  --md-sys-color-on-secondary-container: var(--accent-blue-v);
   
   --md-sys-color-surface: #ffffff;
   --md-sys-color-surface-variant: #eef3f8; /* Tonal slate-blue */
@@ -29,6 +29,7 @@
   /* Backward-compatible aliases for components CSS */
   --primary: var(--md-sys-color-primary);
   --secondary: var(--md-sys-color-secondary);
+  --secondary-dark: #384c78; /* Darker shade of Accent Blue */
   --bg-light: var(--md-sys-color-background);
   --bg-alt: var(--md-sys-color-surface-variant);
   --bg-main: var(--md-sys-color-surface);
@@ -96,7 +97,7 @@ a {
 .card:hover {
   transform: translateY(-4px);
   box-shadow: var(--md-sys-elevation-2);
-  border-color: rgba(10, 102, 194, 0.15);
+  border-color: rgba(25, 44, 88, 0.15);
 }
 
 /* Material Design 3 Buttons (Capsules) */
@@ -123,25 +124,25 @@ a {
 .btn-primary {
   background: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
-  box-shadow: 0 2px 6px rgba(10, 102, 194, 0.15);
+  box-shadow: 0 2px 6px rgba(25, 44, 88, 0.15);
 }
 
 .btn-primary:hover {
-  background: #004182; /* Darker LinkedIn Blue */
+  background: #101d3a; /* Darker Primary Navy Blue */
   color: white;
-  box-shadow: 0 4px 12px rgba(10, 102, 194, 0.3);
+  box-shadow: 0 4px 12px rgba(25, 44, 88, 0.3);
 }
 
 .btn-secondary {
   background: var(--md-sys-color-secondary);
   color: var(--md-sys-color-on-secondary);
-  box-shadow: 0 2px 6px rgba(0, 119, 181, 0.15);
+  box-shadow: 0 2px 6px rgba(70, 95, 150, 0.15);
 }
 
 .btn-secondary:hover {
   background: var(--md-sys-color-primary);
   color: white;
-  box-shadow: 0 4px 12px rgba(10, 102, 194, 0.25);
+  box-shadow: 0 4px 12px rgba(25, 44, 88, 0.25);
 }
 
 .btn-outline {
@@ -151,7 +152,7 @@ a {
 }
 
 .btn-outline:hover {
-  background: rgba(10, 102, 194, 0.04);
+  background: rgba(25, 44, 88, 0.04);
   border-color: var(--md-sys-color-primary);
 }
 
