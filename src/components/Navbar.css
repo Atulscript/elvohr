@@ -277,6 +277,15 @@
   .top-bar, .desktop-links {
     display: none !important;
   }
+  .navbar {
+    padding: 10px 0 !important;
+  }
+  .header-wrapper.scrolled .navbar {
+    padding: 6px 0 !important;
+  }
+  .logo-img {
+    height: 38px !important;
+  }
 }
 
 @media (max-width: 576px) {
