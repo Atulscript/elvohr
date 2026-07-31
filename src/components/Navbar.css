@@ -266,6 +266,12 @@
 }
 
 @media (max-width: 992px) {
+  .desktop-links {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
   .top-bar, .desktop-links {
     display: none !important;
   }
