@@ -3,7 +3,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 64px;
+  height: 50px;
   background-color: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -24,9 +24,9 @@
   color: var(--md-sys-color-on-surface-variant);
   text-decoration: none;
   font-family: var(--font-heading);
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   font-weight: 600;
-  gap: 4px;
+  gap: 2px;
   width: 20%;
   height: 100%;
   transition: var(--transition);
@@ -55,6 +55,6 @@
 
 @media (max-width: 768px) {
   body {
-    padding-bottom: 64px !important; /* Ensure content clears sticky navigation */
+    padding-bottom: 50px !important; /* Ensure content clears sticky navigation */
   }
 }
