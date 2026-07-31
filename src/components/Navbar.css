@@ -90,8 +90,10 @@
   border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-.header-wrapper.scrolled {
-  transform: translateY(-37px); /* Slide entire header up by top-bar height */
+@media (min-width: 769px) {
+  .header-wrapper.scrolled {
+    transform: translateY(-37px); /* Slide entire header up by top-bar height */
+  }
 }
 
 .header-wrapper.scrolled .navbar {
