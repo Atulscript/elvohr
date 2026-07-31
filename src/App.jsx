@@ -17,7 +17,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router basename="/elvohr">
+    <Router>
       <ScrollToTop />
       <div className="app-container">
         <Navbar />
