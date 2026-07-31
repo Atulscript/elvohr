@@ -3,13 +3,13 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import './ContactPage.css';
 
 const ContactPage = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', enquiryType: '', subject: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setFormData({ name: '', email: '', enquiryType: '', subject: '', message: '' });
   };
 
   return (
@@ -26,7 +26,7 @@ const ContactPage = () => {
             <p>Whether you're looking for stellar talent or your next career path, ELVO HR is here to support you.</p>
             
             <ul className="info-list">
-              <li><MapPin className="icon" /> <span>123 Business Hub, New Delhi, India</span></li>
+              <li><MapPin className="icon" /> <span>Pocket D, Okhla phase-2, Delhi 110020</span></li>
               <li><Phone className="icon" /> <span>+91 98765 43210</span></li>
               <li><Mail className="icon" /> <span>contact@elvohr.com</span></li>
             </ul>
@@ -60,6 +60,22 @@ const ContactPage = () => {
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
                   />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="enquiryType">Enquiries Type</label>
+                  <select
+                    id="enquiryType"
+                    value={formData.enquiryType}
+                    onChange={(e) => setFormData({ ...formData, enquiryType: e.target.value })}
+                    required
+                  >
+                    <option value="" disabled>Select enquiry type</option>
+                    <option value="PF">PF</option>
+                    <option value="ESI">ESI</option>
+                    <option value="Bonus">Bonus</option>
+                    <option value="Resignation solution">Resignation solution</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </div>
                 <div className="form-group">
                   <label htmlFor="subject">Subject</label>

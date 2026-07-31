@@ -21,8 +21,8 @@ const Services = () => {
     },
     {
       icon: <Globe size={32} />,
-      title: "Employer of Record (EOR)",
-      description: "Expand globally without the hassle of setting up legal entities. We act as your official employer."
+      title: "Candidate Engagement & Success",
+      description: "Candidates deserve more than just a job opportunity, they deserve guidance, support, and a clear path to success. We act as your engagement partner."
     },
     {
       icon: <Briefcase size={32} />,

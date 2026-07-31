@@ -1,5 +1,5 @@
 .footer {
-  background-color: var(--primary); /* Solid Blue background matching image */
+  background-color: var(--primary); /* Solid Navy Blue background matching Business Enquiries CTA */
   color: white;
   padding: 80px 0 0 0;
   font-size: 0.9rem;
@@ -94,7 +94,7 @@
   padding: 12px 28px;
   border-radius: 4px;
   transition: background 0.3s ease;
-  box-shadow: 0 4px 10px rgba(70, 95, 150, 0.2);
+  box-shadow: 0 4px 10px rgba(6, 90, 214, 0.2);
 }
 
 .associate-btn:hover {
@@ -123,7 +123,7 @@
 }
 
 .contact-item .icon {
-  color: white;
+  color: var(--secondary);
   flex-shrink: 0;
 }
 
@@ -270,7 +270,7 @@
 }
 
 .bottom-socials a {
-  color: rgba(255,255,255,0.7);
+  color: var(--secondary);
   transition: all 0.3s ease;
 }
 

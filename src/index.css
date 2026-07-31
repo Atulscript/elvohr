@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
-
 :root {
   /* Brand Color Definitions */
   --primary-navy-blue: #192C58;
-  --accent-blue-v: #465F96;
+  --accent-blue-v: #065AD6;
   --linkedin-charcoal: #1d2226;
   --linkedin-bg: #f3f2ef;
 
@@ -29,7 +27,7 @@
   /* Backward-compatible aliases for components CSS */
   --primary: var(--md-sys-color-primary);
   --secondary: var(--md-sys-color-secondary);
-  --secondary-dark: #384c78; /* Darker shade of Accent Blue */
+  --secondary-dark: #0444a4; /* Darker shade of Blue */
   --bg-light: var(--md-sys-color-background);
   --bg-alt: var(--md-sys-color-surface-variant);
   --bg-main: var(--md-sys-color-surface);
@@ -136,7 +134,7 @@ a {
 .btn-secondary {
   background: var(--md-sys-color-secondary);
   color: var(--md-sys-color-on-secondary);
-  box-shadow: 0 2px 6px rgba(70, 95, 150, 0.15);
+  box-shadow: 0 2px 6px rgba(6, 90, 214, 0.15);
 }
 
 .btn-secondary:hover {
@@ -165,7 +163,7 @@ a {
 }
 
 .section {
-  padding: 100px 0;
+  padding: 70px 0 100px 0;
 }
 
 .section-header {

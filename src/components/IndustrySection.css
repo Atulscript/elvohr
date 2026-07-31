@@ -51,7 +51,7 @@
 .industry-tab-btn .tab-icon {
   display: flex;
   align-items: center;
-  color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-secondary);
 }
 
 .industry-tab-btn:hover {

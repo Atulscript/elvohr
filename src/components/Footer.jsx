@@ -28,9 +28,8 @@ const Footer = () => {
             <div className="office-details">
               <h4>Registered Office</h4>
               <p>ELVO HR Services Pvt. Ltd.</p>
-              <p>Unit No 401, OM Sadan, Mehra Industrial Estate,</p>
-              <p>Lal Bahadur Shastri Marg, Behind Jaswanti Landmark,</p>
-              <p>Vikhroli West, Mumbai, Maharashtra - 400079</p>
+              <p>Pocket D, Okhla phase-2,</p>
+              <p>Delhi - 110020</p>
               <p className="cin-text">CIN No: U74900MH2016PTC273940</p>
             </div>
           </div>
@@ -44,7 +43,6 @@ const Footer = () => {
                 <li><Link to="/about">About Us</Link></li>
                 <li><a href="#">CSR</a></li>
                 <li><Link to="/contact">Contact Us</Link></li>
-                <li><a href="#">Blogs</a></li>
               </ul>
               <ul>
                 <li><Link to="/services">Permanent Recruitment</Link></li>
@@ -109,7 +107,7 @@ const Footer = () => {
           </div>
           <div className="platform-desc">
             <p>
-              We are a human resources investment platform formed by world-renowned investors with the objective to deliver end-to-end HR solutions and build a winning workforce that thrives in change. We provide work to 126,824 people who serve 1200+ clients across 3500+ locations through our branch network. Our customers span across industry sectors, including Telecom, Retail, BFSI, IT, ITES, E-Commerce, Manufacturing, Engineering and Logistics. <a href="#" className="read-more">Know More</a>
+              We are a growing Human Resources solutions company dedicated to helping organizations build high-performing teams and empowering professionals with meaningful career opportunities. We offer end-to-end HR solutions, including Recruitment, Staffing, Payroll, HR Operations, Compliance, and HR Consulting, tailored to the unique needs of businesses across industries. With a people-first approach, industry expertise, and a commitment to quality, integrity, and innovation, we strive to become a trusted HR partner, delivering solutions that enable organizations and individuals to grow together.
             </p>
           </div>
         </div>
@@ -127,11 +125,11 @@ const Footer = () => {
           </div>
 
           <div className="bottom-socials">
-            <a href="#"><FaLinkedin size={18} /></a>
-            <a href="#"><FaTwitter size={18} /></a>
-            <a href="#"><FaFacebook size={18} /></a>
-            <a href="#"><FaInstagram size={18} /></a>
-            <a href="#"><FaYoutube size={18} /></a>
+            <a href="#" aria-label="LinkedIn"><FaLinkedin size={18} /></a>
+            <a href="#" aria-label="Twitter"><FaTwitter size={18} /></a>
+            <a href="#" aria-label="Facebook"><FaFacebook size={18} /></a>
+            <a href="#" aria-label="Instagram"><FaInstagram size={18} /></a>
+            <a href="#" aria-label="YouTube"><FaYoutube size={18} /></a>
           </div>
         </div>
 

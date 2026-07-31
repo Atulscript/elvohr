@@ -71,7 +71,7 @@
   height: 80px;
   border-radius: 50%;
   background: var(--bg-alt);
-  color: var(--primary);
+  color: var(--secondary);
   margin-bottom: 24px;
   transition: transform 0.3s ease;
 }
