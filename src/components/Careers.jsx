@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Careers.css';
 import { Search, Upload, Mail } from 'lucide-react';
+import { AlertContext } from '../App';
 
 const Careers = () => {
+  const openAlert = useContext(AlertContext);
   const industries = [
     "Information Technology (IT)", "Banking & Financial Services (BFSI)", 
     "Healthcare & Life Sciences", "Manufacturing", "Automobile", 
@@ -33,7 +35,7 @@ const Careers = () => {
             At ELVO HR, we believe every career has the potential to create a lasting impact. Whether you're a fresh graduate taking your first step, an experienced professional seeking new challenges, or a leader ready to drive transformation, we're here to help you find the right opportunity.
           </p>
           <div className="careers-cta">
-            <button className="btn btn-primary"><Search size={18}/> Search Jobs</button>
+            <button onClick={openAlert} className="btn btn-primary"><Search size={18}/> Search Jobs</button>
             <button className="btn btn-secondary"><Upload size={18}/> Upload Resume</button>
             <button className="btn btn-outline"><Mail size={18}/> Connect with Recruiter</button>
           </div>

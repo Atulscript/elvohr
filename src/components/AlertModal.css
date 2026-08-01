@@ -1,0 +1,164 @@
+.alert-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.alert-modal-content {
+  background: var(--md-sys-color-surface);
+  position: relative;
+  max-width: 420px;
+  width: 100%;
+  padding: 36px 28px 28px 28px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  text-align: center;
+  border: 1px solid rgba(25, 44, 88, 0.1);
+  box-shadow: var(--md-sys-elevation-3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alert-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(15, 23, 42, 0.05);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--md-sys-color-on-surface-variant);
+  transition: var(--transition);
+}
+
+.alert-modal-close:hover {
+  background: rgba(25, 44, 88, 0.1);
+  color: var(--md-sys-color-primary);
+  transform: rotate(90deg);
+}
+
+.alert-modal-icon-wrapper {
+  position: relative;
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-secondary);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.alert-modal-icon {
+  z-index: 2;
+  position: relative;
+  animation: pulse-icon 2.5s infinite ease-in-out;
+}
+
+.alert-modal-icon-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--md-sys-color-primary-container);
+  z-index: 1;
+  animation: ripple 2s infinite ease-out;
+}
+
+.alert-modal-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--md-sys-color-primary);
+  margin-bottom: 6px;
+}
+
+.alert-modal-badge {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-secondary);
+  padding: 4px 12px;
+  border-radius: var(--md-sys-shape-corner-full);
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.alert-modal-description {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.alert-modal-subtext {
+  font-size: 0.84rem;
+  color: var(--md-sys-color-on-surface-variant);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.alert-modal-actions {
+  width: 100%;
+}
+
+.alert-modal-actions .btn {
+  width: 100%;
+  padding: 12px;
+}
+
+/* Animations */
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-icon {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes scaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
