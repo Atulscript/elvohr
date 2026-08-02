@@ -12,7 +12,7 @@ const Footer = () => {
     "Staffing Companies in India", "Contract Staffing Services", "Contract Staffing in India",
     "Temporary Staffing Agencies", "Placement Agencies in India", "Job Recruitment Agencies",
     "Top Managed Service Providers", "Top Consulting Firms in India", "Top HR Consultancy",
-    "Facility Management Services Provider", "Permanent Recruitment Services", "Recruitment Agencies"
+    "Compliance Management Services", "Permanent Recruitment Services", "Recruitment Agencies"
   ];
 
   return (
@@ -47,7 +47,7 @@ const Footer = () => {
               <ul>
                 <li><Link to="/services">Permanent Recruitment</Link></li>
                 <li><Link to="/services">Managed Services</Link></li>
-                <li><Link to="/services">Facility Management</Link></li>
+                <li><Link to="/services">Compliance Management</Link></li>
                 <li><Link to="/services">General Staffing</Link></li>
               </ul>
             </div>
