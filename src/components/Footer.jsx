@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Footer.css';
-import logoImg from '../assets/logo.png';
+import logoImg from '../assets/logo-footer.png';
 import { Mail, Phone, MapPin, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaYoutube } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
