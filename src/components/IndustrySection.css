@@ -182,7 +182,7 @@
 }
 
 .industry-description {
-  color: var(--md-sys-color-on-surface-variant);
+  color: var(--md-sys-color-on-surface);
   font-size: 1.02rem;
   line-height: 1.65;
   margin-bottom: 32px;
