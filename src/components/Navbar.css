@@ -103,7 +103,7 @@
 }
 
 .header-wrapper.scrolled .logo-img {
-  height: 52px;
+  height: 42px;
 }
 
 .nav-container {
@@ -119,7 +119,7 @@
 }
 
 .logo-img {
-  height: 68px;
+  height: 54px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -289,7 +289,7 @@
     padding: 6px 0 !important;
   }
   .logo-img {
-    height: 48px !important;
+    height: 38px !important;
   }
 }
 
