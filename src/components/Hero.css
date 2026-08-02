@@ -45,7 +45,8 @@
   width: 100%;
   max-width: 480px;
   height: auto;
-  mix-blend-mode: multiply;
+  border-radius: var(--md-sys-shape-corner-large);
+  box-shadow: var(--md-sys-elevation-2);
 }
 
 .hero-stats {
