@@ -72,8 +72,7 @@ const Footer = () => {
                 <Mail size={20} className="icon" />
                 <div>
                   <h4>Email</h4>
-                  <p>Sales Query: <a href="mailto:sales@elvohr.com">sales@elvohr.com</a></p>
-                  <p>Associates: <a href="mailto:ar@elvohr.com">ar@elvohr.com</a></p>
+                  <p>General Queries: <a href="mailto:info@elvohr.com">info@elvohr.com</a></p>
                   <p>Jobs: <a href="mailto:jobs@elvohr.com">jobs@elvohr.com</a></p>
                 </div>
               </div>

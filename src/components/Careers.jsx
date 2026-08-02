@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './Careers.css';
-import { Search, Upload, Mail } from 'lucide-react';
+import { Search, Upload } from 'lucide-react';
 import { AlertContext } from '../App';
 
 const Careers = () => {
@@ -37,7 +37,6 @@ const Careers = () => {
           <div className="careers-cta">
             <button onClick={openAlert} className="btn btn-primary"><Search size={18}/> Search Jobs</button>
             <button className="btn btn-secondary"><Upload size={18}/> Upload Resume</button>
-            <button className="btn btn-outline"><Mail size={18}/> Connect with Recruiter</button>
           </div>
         </div>
 
