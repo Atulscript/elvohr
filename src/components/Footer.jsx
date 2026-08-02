@@ -26,7 +26,7 @@ const Footer = () => {
               <img src={logoImg} alt="ELVO HR Logo" className="footer-logo-img" />
             </div>
             <div className="office-details">
-              <h4>Registered Office</h4>
+              <h4>Office Address</h4>
               <p>ELVO HR Services Pvt. Ltd.</p>
               <p>Pocket D, Okhla phase-2,</p>
               <p>Delhi - 110020</p>
