@@ -20,8 +20,35 @@
   font-size: 1.1rem;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-content {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.1s;
+}
+
 .about-meaning {
   padding: 40px;
+  background: white;
+  border-radius: var(--md-sys-shape-corner-medium, 12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.2s;
+}
+
+.about-meaning:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 36px rgba(25, 44, 88, 0.12);
 }
 
 .about-meaning h3 {
@@ -61,6 +88,24 @@
 
 .vm-card {
   padding: 50px 40px;
+  background: white;
+  border-radius: var(--md-sys-shape-corner-medium, 12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.vision-mission-grid > .vm-card:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.vision-mission-grid > .vm-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.vm-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 36px rgba(25, 44, 88, 0.12);
 }
 
 .icon-wrapper {
