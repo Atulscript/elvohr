@@ -40,12 +40,12 @@ const Hero = () => {
         <div className="hero-stats animate-fade-in delay-3">
           <div className="stat-item card">
             <Building2 size={32} className="stat-icon" />
-            <h3>500+</h3>
+            <h3>50+</h3>
             <p>Organizations</p>
           </div>
           <div className="stat-item card">
             <Users2 size={32} className="stat-icon" />
-            <h3>10k+</h3>
+            <h3>1k+</h3>
             <p>Careers Built</p>
           </div>
           <div className="stat-item card">
