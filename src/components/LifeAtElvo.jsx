@@ -3,10 +3,10 @@ import './LifeAtElvo.css';
 
 const LifeAtElvo = () => {
   const galleryItems = [
-    { image: `${import.meta.env.BASE_URL}culture.jpg`, title: "Culture & Events" },
-    { image: `${import.meta.env.BASE_URL}retreats.jpg`, title: "Team Celebrations" },
-    { image: `${import.meta.env.BASE_URL}environment.jpg`, title: "Work Environment" },
-    { image: `${import.meta.env.BASE_URL}hero-creative.jpg`, title: "Connecting Talent" }
+    { image: `${import.meta.env.BASE_URL}life-office.png`, title: "Modern Office Workspace" },
+    { image: `${import.meta.env.BASE_URL}life-coffee.png`, title: "Collaborative Culture" },
+    { image: `${import.meta.env.BASE_URL}life-laptop.png`, title: "Team Synergy" },
+    { image: `${import.meta.env.BASE_URL}life-cheer.jpg`, title: "Employee Celebrations" }
   ];
 
   return (
