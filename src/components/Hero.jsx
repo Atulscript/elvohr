@@ -14,18 +14,20 @@ const Hero = () => {
           
           <div className="hero-text-content">
             <h1 className="animate-fade-in">
-              Empowering Lives.<br/>
-              <span className="text-accent">Valuing Organizations.</span>
+              <span>Empowering <span className="text-accent">Lives.</span></span><br/>
+              <span style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
+                Valuing <span className="text-accent">Organizations.</span>
+              </span>
             </h1>
             <p className="hero-subtitle animate-fade-in delay-1">
               Your trusted Human Resources solutions partner. We help businesses attract, manage, and retain talent while enabling professionals to build meaningful careers.
             </p>
             
             <div className="hero-cta animate-fade-in delay-2">
-              <button onClick={openAlert} className="btn btn-secondary">
+              <button onClick={openAlert} className="btn btn-primary">
                 Search Jobs <Search size={18} />
               </button>
-              <Link to="/contact" className="btn btn-primary">
+              <Link to="/contact" className="btn btn-secondary">
                 Business Enquiries <ArrowRight size={18} />
               </Link>
             </div>
@@ -39,19 +41,31 @@ const Hero = () => {
 
         <div className="hero-stats animate-fade-in delay-3">
           <div className="stat-item card">
-            <Building2 size={32} className="stat-icon" />
-            <h3>50+</h3>
-            <p>Organizations</p>
+            <div className="stat-icon-circle">
+              <Building2 size={32} className="stat-icon" />
+            </div>
+            <div className="stat-text">
+              <h3>50+</h3>
+              <p>Organizations</p>
+            </div>
           </div>
           <div className="stat-item card">
-            <Users2 size={32} className="stat-icon" />
-            <h3>1k+</h3>
-            <p>Careers Built</p>
+            <div className="stat-icon-circle">
+              <Users2 size={32} className="stat-icon" />
+            </div>
+            <div className="stat-text">
+              <h3>1k+</h3>
+              <p>Careers Built</p>
+            </div>
           </div>
           <div className="stat-item card">
-            <LineChart size={32} className="stat-icon" />
-            <h3>15+</h3>
-            <p>Industries</p>
+            <div className="stat-icon-circle">
+              <LineChart size={32} className="stat-icon" />
+            </div>
+            <div className="stat-text">
+              <h3>15+</h3>
+              <p>Industries</p>
+            </div>
           </div>
         </div>
 

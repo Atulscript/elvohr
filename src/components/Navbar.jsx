@@ -55,11 +55,12 @@ const Navbar = () => {
                 <Briefcase size={16} className="nav-icon-inline" /> Our Services <ChevronDown size={12} className={`caret-icon ${servicesDropdownOpen ? 'rotated' : ''}`} />
               </NavLink>
               <div className={`dropdown-menu ${servicesDropdownOpen ? 'show' : ''}`}>
-                <Link to="/services">Temporary Staffing</Link>
-                <Link to="/services">Permanent Recruitment</Link>
+                <Link to="/services">Recruitment & Staffing</Link>
                 <Link to="/services">Payroll Management</Link>
                 <Link to="/services">Compliance Services</Link>
                 <Link to="/services">Candidate Engagement & Success</Link>
+                <Link to="/services">HR Operations</Link>
+                <Link to="/services">Custom Solutions</Link>
               </div>
             </div>
 

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const [showExpertise, setShowExpertise] = useState(false);
+  const [showBranding, setShowBranding] = useState(false);
 
   const expertiseLinks = [
     "Staffing Companies in India", "Contract Staffing Services", "Contract Staffing in India",
@@ -18,66 +19,74 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
-        {/* Main Footer Row */}
-        <div className="footer-main-grid">
-          {/* Column 1: Address */}
-          <div className="footer-col office-col">
+        {/* 4-Column Grid */}
+        <div className="footer-grid">
+          
+          {/* Column 1: Logo & Socials */}
+          <div className="footer-col col-info">
             <div className="footer-logo-container">
               <img src={logoImg} alt="ELVO HR Logo" className="footer-logo-img" />
             </div>
-            <div className="office-details">
-              <h4>Office Address</h4>
-              <p>ELVO HR Services Pvt. Ltd.</p>
-              <p>Pocket D, Okhla phase-2,</p>
-              <p>Delhi - 110020</p>
-              <p className="cin-text">CIN No: U74900MH2016PTC273940</p>
+            <p className="footer-desc">
+              Your trusted partner for end-to-end HR solutions. Empowering lives. Valuing organizations.
+            </p>
+            <div className="footer-socials">
+              <a href="#" aria-label="LinkedIn"><FaLinkedin size={18} /></a>
+              <a href="#" aria-label="Twitter"><FaTwitter size={18} /></a>
+              <a href="#" aria-label="Facebook"><FaFacebook size={18} /></a>
+              <a href="#" aria-label="Instagram"><FaInstagram size={18} /></a>
+              <a href="#" aria-label="YouTube"><FaYoutube size={18} /></a>
             </div>
           </div>
 
-          {/* Column 2: Links & Button */}
-          <div className="footer-col links-col">
-            <h3>Important Links</h3>
-            <div className="links-subgrid">
-              <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About Us</Link></li>
-                <li><a href="#">CSR</a></li>
-                <li><Link to="/contact">Contact Us</Link></li>
-              </ul>
-              <ul>
-                <li><Link to="/services">Permanent Recruitment</Link></li>
-                <li><Link to="/services">Managed Services</Link></li>
-                <li><Link to="/services">Compliance Management</Link></li>
-                <li><Link to="/services">General Staffing</Link></li>
-              </ul>
-            </div>
-            
-            <a href="#" className="associate-btn">
-              Training for Associates <ArrowRight size={18} />
+          {/* Column 2: Quick Links */}
+          <div className="footer-col">
+            <h3>Quick Links</h3>
+            <ul className="footer-links">
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/services">Our Services</Link></li>
+              <li><Link to="/careers">Careers</Link></li>
+              <li><Link to="/life-at-elvo">Life at ELVO</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 3: Our Services */}
+          <div className="footer-col">
+            <h3>Our Services</h3>
+            <ul className="footer-links">
+              <li><Link to="/services">Recruitment & Staffing</Link></li>
+              <li><Link to="/services">Payroll Management</Link></li>
+              <li><Link to="/services">Compliance Services</Link></li>
+              <li><Link to="/services">Candidate Engagement & Success</Link></li>
+              <li><Link to="/services">HR Operations</Link></li>
+              <li><Link to="/services">Custom Solutions</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 4: Contact Us */}
+          <div className="footer-col col-contact">
+            <h3>Contact Us</h3>
+            <ul className="contact-details">
+              <li>
+                <MapPin size={16} className="contact-icon" />
+                <span>Pocket D, Okhla phase-2, Delhi - 110020</span>
+              </li>
+              <li>
+                <Phone size={16} className="contact-icon" />
+                <span>Toll Free: 1800 22 4456</span>
+              </li>
+              <li>
+                <Mail size={16} className="contact-icon" />
+                <a href="mailto:info@elvohr.com">info@elvohr.com</a>
+              </li>
+            </ul>
+            <a href="#" className="associate-btn-compact">
+              Training for Associates <ArrowRight size={14} />
             </a>
           </div>
 
-          {/* Column 3: Contact Box (Dotted Outline) */}
-          <div className="footer-col contact-box">
-            <div className="contact-box-inner">
-              <div className="contact-item">
-                <Phone size={20} className="icon" />
-                <div>
-                  <h4>Contact</h4>
-                  <p>Toll Free : 1800 22 4456</p>
-                </div>
-              </div>
-              
-              <div className="contact-item">
-                <Mail size={20} className="icon" />
-                <div>
-                  <h4>Email</h4>
-                  <p>General Queries: <a href="mailto:info@elvohr.com">info@elvohr.com</a></p>
-                  <p>Jobs: <a href="mailto:jobs@elvohr.com">jobs@elvohr.com</a></p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Areas of Expertise Collapse Section */}
@@ -100,11 +109,19 @@ const Footer = () => {
 
         {/* Bottom Platform/First Meridian Branding Section */}
         <div className="platform-branding-section">
-          <div className="platform-logo">
-            <h3>ELVO <span>Group</span></h3>
+          <div 
+            className="platform-logo" 
+            onClick={() => setShowBranding(!showBranding)}
+          >
+            <div className="logo-title-row">
+              <h3>ELVO <span>Group</span></h3>
+              <span className="mobile-toggle-icon">
+                {showBranding ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+              </span>
+            </div>
             <p>Building Partnerships, Creating Value</p>
           </div>
-          <div className="platform-desc">
+          <div className={`platform-desc ${showBranding ? 'show-mobile' : ''}`}>
             <p>
               We are a growing Human Resources solutions company dedicated to helping organizations build high-performing teams and empowering professionals with meaningful career opportunities. We offer end-to-end HR solutions, including Recruitment, Staffing, Payroll, HR Operations, Compliance, and HR Consulting, tailored to the unique needs of businesses across industries. With a people-first approach, industry expertise, and a commitment to quality, integrity, and innovation, we strive to become a trusted HR partner, delivering solutions that enable organizations and individuals to grow together.
             </p>
@@ -119,16 +136,10 @@ const Footer = () => {
           
           <div className="bottom-links">
             <Link to="/privacy">Privacy Policy</Link>
+            <span className="divider">|</span>
             <Link to="/terms">Terms of Use</Link>
+            <span className="divider">|</span>
             <Link to="/cookies">Cookie Policy</Link>
-          </div>
-
-          <div className="bottom-socials">
-            <a href="#" aria-label="LinkedIn"><FaLinkedin size={18} /></a>
-            <a href="#" aria-label="Twitter"><FaTwitter size={18} /></a>
-            <a href="#" aria-label="Facebook"><FaFacebook size={18} /></a>
-            <a href="#" aria-label="Instagram"><FaInstagram size={18} /></a>
-            <a href="#" aria-label="YouTube"><FaYoutube size={18} /></a>
           </div>
         </div>
 

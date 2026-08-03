@@ -23,8 +23,8 @@
   padding: 32px;
   border-left: 4px solid var(--primary);
   background: white;
-  border-radius: var(--md-sys-shape-corner-medium, 12px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(11, 94, 215, 0.04);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
@@ -33,7 +33,7 @@
 
 .value-item:hover {
   transform: translateY(-8px);
-  box-shadow: 0 16px 36px rgba(25, 44, 88, 0.12);
+  box-shadow: 0 16px 36px rgba(11, 94, 215, 0.1);
   border-left-width: 6px;
 }
 

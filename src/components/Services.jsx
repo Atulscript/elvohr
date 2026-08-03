@@ -1,6 +1,7 @@
 import React from 'react';
 import './Services.css';
-import { Briefcase, Users, FileText, CheckSquare, Globe, Building } from 'lucide-react';
+import { Briefcase, Users, FileText, CheckSquare, Globe, Building, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const services = [
@@ -52,6 +53,9 @@ const Services = () => {
               <div className="service-icon">{service.icon}</div>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
+              <Link to="/contact" className="learn-more-link">
+                Learn More <ArrowRight size={16} />
+              </Link>
             </div>
           ))}
         </div>
