@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useState, createContext } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
