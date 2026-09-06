@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
 import ScrollToTop from './components/ScrollToTop';
-import AlertModal from './components/AlertModal';
 
 const Home = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
@@ -13,21 +12,24 @@ const CareersPage = lazy(() => import('./pages/CareersPage'));
 const LifeAtElvoPage = lazy(() => import('./pages/LifeAtElvoPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const LegalPage = lazy(() => import('./pages/LegalPage'));
+const PortalAdminPage = lazy(() => import('./pages/PortalAdminPage'));
 
 import './App.css';
 
-// Create a global context for triggering the search jobs alert
-export const AlertContext = createContext(null);
+// Create a global context for triggering careers navigation if referenced
+export const AlertContext = createContext(() => {
+  window.location.href = '/careers';
+});
 
 import { useLocation } from 'react-router-dom';
 import CtaBanner from './components/CtaBanner';
 
 // Sub-component to have access to router location context
-function AppContent({ openAlert, isAlertOpen, closeAlert }) {
+function AppContent() {
   const location = useLocation();
   
-  // Hide CTA banner on Contact and Legal/Compliance pages
-  const hideCta = ['/contact', '/privacy', '/terms', '/cookies'].includes(location.pathname);
+  // Hide CTA banner on Contact, Admin, and Legal/Compliance pages
+  const hideCta = ['/contact', '/privacy', '/terms', '/cookies', '/portal-admin'].includes(location.pathname);
 
   return (
     <div className="app-container">
@@ -52,11 +54,13 @@ function AppContent({ openAlert, isAlertOpen, closeAlert }) {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/careers" element={<CareersPage />} />
+            <Route path="/careers/:jobId" element={<CareersPage />} />
             <Route path="/life-at-elvo" element={<LifeAtElvoPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy" element={<LegalPage />} />
             <Route path="/terms" element={<LegalPage />} />
             <Route path="/cookies" element={<LegalPage />} />
+            <Route path="/portal-admin" element={<PortalAdminPage />} />
           </Routes>
         </Suspense>
       </main>
@@ -68,23 +72,16 @@ function AppContent({ openAlert, isAlertOpen, closeAlert }) {
 }
 
 function App() {
-  const [isAlertOpen, setIsAlertOpen] = useState(false);
-
-  const openAlert = (e) => {
+  const handleSearchJobs = (e) => {
     if (e && e.preventDefault) e.preventDefault();
-    setIsAlertOpen(true);
-  };
-
-  const closeAlert = () => {
-    setIsAlertOpen(false);
+    window.location.href = '/careers';
   };
 
   return (
-    <AlertContext.Provider value={openAlert}>
+    <AlertContext.Provider value={handleSearchJobs}>
       <Router>
         <ScrollToTop />
-        <AppContent openAlert={openAlert} isAlertOpen={isAlertOpen} closeAlert={closeAlert} />
-        <AlertModal isOpen={isAlertOpen} onClose={closeAlert} />
+        <AppContent />
       </Router>
     </AlertContext.Provider>
   );

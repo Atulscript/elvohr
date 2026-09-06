@@ -1,12 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Headphones, Search, ArrowRight } from 'lucide-react';
-import { AlertContext } from '../App';
 import './CtaBanner.css';
 
 const CtaBanner = () => {
-  const openAlert = useContext(AlertContext);
-
   return (
     <section className="cta-banner-section">
       <div className="container">
@@ -21,9 +18,9 @@ const CtaBanner = () => {
             </div>
           </div>
           <div className="cta-banner-right">
-            <button onClick={openAlert} className="cta-btn cta-btn-white">
+            <Link to="/careers" className="cta-btn cta-btn-white">
               Search Jobs <Search size={18} />
-            </button>
+            </Link>
             <Link to="/contact" className="cta-btn cta-btn-outline">
               Contact Us <ArrowRight size={18} />
             </Link>

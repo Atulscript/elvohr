@@ -28,7 +28,7 @@ const Navbar = () => {
             <Link to="/contact" className="top-tab-white">Request Talent</Link>
             <Link to="/contact" className="top-link"><MapPin size={13} /> Office Locations</Link>
             <Link to="/contact" className="top-link"><Users size={13} /> Associate Support</Link>
-            <a href="#" className="top-link login-link"><LogIn size={13} /> Associate Login</a>
+            <Link to="/portal-admin" className="top-link login-link"><LogIn size={13} /> Associate Login</Link>
           </div>
         </div>
       </div>

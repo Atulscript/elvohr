@@ -1,0 +1,356 @@
+/* JobApplyModal.css */
+
+.apply-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 46, 111, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1300;
+  padding: 1.5rem;
+}
+
+.apply-modal-card {
+  position: relative;
+  background: #ffffff;
+  width: 100%;
+  max-width: 680px;
+  max-height: 92vh;
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  box-shadow: 0 24px 60px rgba(10, 46, 111, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(11, 94, 215, 0.15);
+}
+
+.apply-modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 10;
+}
+
+.apply-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  transform: rotate(90deg);
+}
+
+.apply-modal-header {
+  padding: 2rem 2rem 1.25rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #eef5ff 100%);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.apply-target-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-blue-v);
+  background: rgba(11, 94, 215, 0.1);
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
+}
+
+.apply-modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-navy-blue);
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
+
+.apply-modal-subtitle {
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.apply-modal-body {
+  padding: 1.75rem 2rem;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.apply-alert-error {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.req {
+  color: #ef4444;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.7rem 0.95rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-family: inherit;
+  color: #0f172a;
+  background: #ffffff;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-blue-v);
+  box-shadow: 0 0 0 3px rgba(11, 94, 215, 0.12);
+}
+
+/* Resume Dropzone */
+.resume-dropzone {
+  border: 2px dashed #94a3b8;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  background: #f8fafc;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.resume-dropzone:hover,
+.resume-dropzone.dragging {
+  border-color: var(--accent-blue-v);
+  background: #eff6ff;
+}
+
+.resume-dropzone.has-file {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.dropzone-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.upload-icon {
+  color: var(--accent-blue-v);
+  margin-bottom: 0.25rem;
+}
+
+.dropzone-text {
+  font-size: 0.92rem;
+  color: #334155;
+}
+
+.dropzone-sub {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.dropzone-file-info {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-align: left;
+}
+
+.file-icon-box {
+  background: #dcfce7;
+  color: #166534;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.file-meta {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.file-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #0f172a;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.file-size {
+  font-size: 0.8rem;
+  color: #166534;
+}
+
+.input-error-msg {
+  color: #ef4444;
+  font-size: 0.82rem;
+  margin-top: 0.25rem;
+}
+
+.apply-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.85rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.submit-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Success View */
+.apply-success-view {
+  padding: 3.5rem 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.success-check-circle {
+  width: 88px;
+  height: 88px;
+  background: #dcfce7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.text-success {
+  color: #16a34a;
+}
+
+.success-title {
+  font-size: 1.85rem;
+  color: var(--primary-navy-blue);
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+}
+
+.success-subtitle {
+  font-size: 0.95rem;
+  color: #475569;
+  max-width: 480px;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.success-ref-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.ref-label {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.ref-id {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent-blue-v);
+  letter-spacing: 0.04em;
+}
+
+.success-timeline {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  max-width: 480px;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.success-timeline p {
+  font-size: 0.88rem;
+  color: #166534;
+  margin: 0.35rem 0;
+  font-weight: 500;
+}
+
+.success-done-btn {
+  min-width: 180px;
+}
+
+@media (max-width: 640px) {
+  .apply-modal-header,
+  .apply-modal-body {
+    padding: 1.25rem;
+  }
+  .form-row-2 {
+    grid-template-columns: 1fr;
+  }
+  .apply-modal-footer {
+    flex-direction: column-reverse;
+  }
+  .apply-modal-footer button {
+    width: 100%;
+    justify-content: center;
+  }
+}

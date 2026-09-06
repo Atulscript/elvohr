@@ -140,6 +140,8 @@ const Footer = () => {
             <Link to="/terms">Terms of Use</Link>
             <span className="divider">|</span>
             <Link to="/cookies">Cookie Policy</Link>
+            <span className="divider">|</span>
+            <Link to="/portal-admin" style={{ opacity: 0.85 }}>Portal Admin</Link>
           </div>
         </div>
 

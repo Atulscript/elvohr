@@ -1,12 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './Hero.css';
 import { ArrowRight, Search, Building2, Users2, LineChart } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { AlertContext } from '../App';
 
 const Hero = () => {
-  const openAlert = useContext(AlertContext);
-
   return (
     <section id="home" className="hero">
       <div className="container">
@@ -24,9 +21,9 @@ const Hero = () => {
             </p>
             
             <div className="hero-cta animate-fade-in delay-2">
-              <button onClick={openAlert} className="btn btn-primary">
+              <Link to="/careers" className="btn btn-primary">
                 Search Jobs <Search size={18} />
-              </button>
+              </Link>
               <Link to="/contact" className="btn btn-secondary">
                 Business Enquiries <ArrowRight size={18} />
               </Link>
