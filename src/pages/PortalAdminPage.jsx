@@ -447,7 +447,7 @@ const PortalAdminPage = () => {
                   <input
                     id="authEmail"
                     type="email"
-                    placeholder="e.g. admin@elvohr.com"
+                    placeholder="e.g. info@elvohr.com"
                     value={authEmail}
                     onChange={(e) => setAuthEmail(e.target.value)}
                     required
@@ -489,35 +489,6 @@ const PortalAdminPage = () => {
                   </>
                 )}
               </button>
-
-              <div className="default-pass-hint">
-                <p style={{ fontWeight: 600, color: '#334155', marginBottom: '8px' }}>Authorized Access Credentials:</p>
-                <div className="demo-accounts-pill-row">
-                  <button 
-                    type="button" 
-                    className="demo-pill-btn"
-                    onClick={() => {
-                      setAuthEmail('admin@elvohr.com');
-                      setAuthPassword('admin123');
-                    }}
-                    title="Click to fill Admin Credentials"
-                  >
-                    🛡️ <strong>Admin:</strong> admin@elvohr.com (Full Control)
-                  </button>
-                  <button 
-                    type="button" 
-                    className="demo-pill-btn"
-                    onClick={() => {
-                      setAuthEmail('recruiter@elvohr.com');
-                      setAuthPassword('user123');
-                    }}
-                    title="Click to fill User Credentials"
-                  >
-                    👤 <strong>User:</strong> recruiter@elvohr.com (Standard)
-                  </button>
-                </div>
-                <p className="hint-secondary">Click either credential pill to automatically pre-fill.</p>
-              </div>
             </form>
           </div>
         </div>

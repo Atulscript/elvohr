@@ -98,9 +98,9 @@ function setupSheets() {
 
     // Default admin and user accounts (Two roles: Admin and User)
     adminsSheet.appendRow([
-      "admin@elvohr.com",
+      "info@elvohr.com",
       "admin123",
-      "Priya Sharma (HR Director)",
+      "ELVO HR Superadmin",
       "Admin",
       "Active",
       new Date().toISOString()
@@ -151,7 +151,7 @@ function normalizeRole(r) {
  */
 function verifyAdmin(email, password, passkey) {
   if (passkey && passkey === ADMIN_PASSKEY) {
-    return { valid: true, user: { email: "admin@elvohr.com", name: "Primary Administrator", role: "Admin" } };
+    return { valid: true, user: { email: "info@elvohr.com", name: "ELVO HR Superadmin", role: "Admin" } };
   }
 
   if (!email || !password) return { valid: false };

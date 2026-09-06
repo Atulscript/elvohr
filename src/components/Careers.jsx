@@ -7,6 +7,7 @@ import {
 import { fetchJobs } from '../services/jobPortalService';
 import JobDetailModal from './JobDetailModal';
 import JobApplyModal from './JobApplyModal';
+import SEO from './SEO';
 import './Careers.css';
 
 const PAGINATION_THRESHOLD = 15;
@@ -121,8 +122,27 @@ const Careers = ({ initialJobId }) => {
     "Internship Programs"
   ];
 
+  const activeSeoJob = selectedJobForDetail || (initialJobId ? jobs.find(j => j.id?.toLowerCase() === initialJobId.toLowerCase()) : null);
+
+  const seoTitle = activeSeoJob 
+    ? `${activeSeoJob.title} (${activeSeoJob.location}) - ELVO HR Careers`
+    : 'Careers & Verified Job Openings | ELVO HR';
+
+  const seoDesc = activeSeoJob
+    ? `Apply for ${activeSeoJob.title} in ${activeSeoJob.location}. ${activeSeoJob.experience} • ${activeSeoJob.salary}. Direct corporate hiring via ELVO HR.`
+    : 'Explore 16+ verified career opportunities, staffing openings, and internships with ELVO HR and top partner enterprises across India.';
+
+  const seoCanonical = activeSeoJob ? `/careers/${activeSeoJob.id}` : '/careers';
+
   return (
     <section id="careers" className="section careers-section">
+      <SEO 
+        title={seoTitle}
+        description={seoDesc}
+        canonical={seoCanonical}
+        job={activeSeoJob || null}
+        jobsList={!activeSeoJob ? jobs : null}
+      />
       <div className="container">
         
         {/* Header */}

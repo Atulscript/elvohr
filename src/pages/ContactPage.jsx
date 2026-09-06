@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import SEO from '../components/SEO';
 import './ContactPage.css';
 
 const ContactPage = () => {
@@ -14,6 +15,12 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page" style={{ paddingTop: '120px' }}>
+      <SEO 
+        title="Contact Us | Hire Talent & HR Advisory | ELVO HR"
+        description="Connect with ELVO HR consultants for end-to-end recruitment, staffing solutions, payroll management, and workplace advisory across India."
+        keywords="contact elvo hr, hire talent, hr advisory, staffing solutions delhi, corporate recruitment partner"
+        canonicalUrl="https://elvohr.com/contact"
+      />
       <div className="container">
         <div className="section-header text-center">
           <h2>Contact Us</h2>

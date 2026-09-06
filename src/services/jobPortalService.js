@@ -4,15 +4,37 @@ const SCRIPT_STORAGE_KEY = 'elvo_google_script_url';
 const LOCAL_JOBS_KEY = 'elvo_portal_jobs';
 const LOCAL_APPS_KEY = 'elvo_portal_applications';
 const LOCAL_ADMINS_KEY = 'elvo_portal_admins';
+const CACHE_VERSION_KEY = 'elvo_portal_cache_version';
+const CURRENT_CACHE_VERSION = 'v1.3.0_info_admin';
 
 export const DEFAULT_ADMIN_PASSKEY = 'elvo2026';
+
+/**
+ * Automatic Cache Manager: Clears stale localStorage caches when version changes
+ */
+export function checkAndClearStaleCache() {
+  try {
+    const savedVersion = localStorage.getItem(CACHE_VERSION_KEY);
+    if (savedVersion !== CURRENT_CACHE_VERSION) {
+      localStorage.removeItem(LOCAL_JOBS_KEY);
+      localStorage.removeItem(LOCAL_ADMINS_KEY);
+      localStorage.setItem(CACHE_VERSION_KEY, CURRENT_CACHE_VERSION);
+      console.log(`[Cache Manager] Automatically purged stale cache. Upgraded to ${CURRENT_CACHE_VERSION}`);
+    }
+  } catch (e) {
+    console.warn('[Cache Manager] Cache verification error:', e);
+  }
+}
+
+// Auto-run on load
+checkAndClearStaleCache();
 
 // 1. Rich Admin Users Dataset (Two Roles: Admin and User)
 export const INITIAL_ADMINS = [
   {
-    email: 'admin@elvohr.com',
+    email: 'info@elvohr.com',
     password: 'admin123',
-    name: 'Priya Sharma (HR Director)',
+    name: 'ELVO HR Superadmin',
     role: 'Admin',
     status: 'Active',
     createdAt: '2026-08-15T00:00:00Z'
@@ -682,7 +704,7 @@ export async function adminLogin(email, password) {
   if (email === DEFAULT_ADMIN_PASSKEY || password === DEFAULT_ADMIN_PASSKEY) {
     return {
       success: true,
-      user: { email: 'admin@elvohr.com', name: 'Primary Administrator', role: 'Admin' }
+      user: { email: 'info@elvohr.com', name: 'Primary Administrator', role: 'Admin' }
     };
   }
 

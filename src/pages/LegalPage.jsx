@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import SEO from '../components/SEO';
 import './LegalPage.css';
 
 const LegalPage = () => {
@@ -94,6 +95,11 @@ const LegalPage = () => {
 
   return (
     <div className="legal-page-wrapper section">
+      <SEO 
+        title={`${content.title} | ELVO HR Services`}
+        description={`Read the official ${content.title} of ELVO HR Services. Learn about our terms, privacy policies, candidate data protections, and corporate compliance.`}
+        canonicalUrl={`https://elvohr.com${pathname}`}
+      />
       <div className="container">
         <div className="legal-card card">
           <h1 className="legal-title">{content.title}</h1>
