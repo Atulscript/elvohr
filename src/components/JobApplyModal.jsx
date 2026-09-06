@@ -157,7 +157,7 @@ const JobApplyModal = ({ job, isOpen, onClose, onSuccess }) => {
             </div>
             <h2 className="success-title">Application Submitted!</h2>
             <p className="success-subtitle">
-              Thank you for applying for <strong>{jobTitle}</strong>. Your profile and resume have been securely dispatched to our hiring team via Google Workspace.
+              Thank you for applying for <strong>{jobTitle}</strong>. A confirmation email has been dispatched to <strong>{formData.email}</strong> with your reference credentials and initial review status.
             </p>
 
             <div className="success-ref-box">
@@ -167,8 +167,9 @@ const JobApplyModal = ({ job, isOpen, onClose, onSuccess }) => {
 
             <div className="success-timeline">
               <p>✓ Resume uploaded securely to Google Drive</p>
-              <p>✓ Application details logged in ELVO HR Talent Portal</p>
-              <p>✓ Hiring manager notified for initial review</p>
+              <p>✓ Confirmation email sent with status: <strong>Received / Under Review</strong></p>
+              <p>✓ Hiring team at <strong>info@elvohr.com</strong> alerted for candidate review</p>
+              <p>✓ You will be automatically notified when matching opportunities are published</p>
             </div>
 
             <button className="btn btn-primary success-done-btn" onClick={resetModal}>

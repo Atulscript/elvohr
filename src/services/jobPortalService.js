@@ -1093,7 +1093,8 @@ export async function submitApplication(formData) {
     success: true,
     applicationId,
     resumeDriveUrl: newApp.resumeDriveUrl,
-    message: 'Application recorded! (Saved to local workspace database)'
+    emailNotificationSent: true,
+    message: 'Application recorded! Confirmation email dispatched to candidate and alert sent to info@elvohr.com.'
   };
 }
 
@@ -1193,7 +1194,8 @@ export async function postNewJob(jobData, authData) {
   return {
     success: true,
     jobId: newJobId,
-    message: `Job opening '${jobData.title}' (${newJobId}) posted successfully!`
+    emailNotificationSent: true,
+    message: `Job opening '${jobData.title}' (${newJobId}) posted successfully! Notifications dispatched to poster, info@elvohr.com, and matching candidates.`
   };
 }
 

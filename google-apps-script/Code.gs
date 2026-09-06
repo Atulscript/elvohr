@@ -19,6 +19,8 @@
 // Configuration
 const RESUME_FOLDER_NAME = "ELVO_HR_Resumes";
 const ADMIN_PASSKEY = "elvo2026"; // Master fallback passkey
+const SENDER_NAME = "ELVO HR Careers & Recruitment";
+const PRIMARY_ADMIN_EMAIL = "info@elvohr.com";
 
 /**
  * Automatically initializes sheet headers if they don't exist
@@ -144,6 +146,294 @@ function normalizeRole(r) {
   if (!r) return "User";
   const str = String(r).trim().toLowerCase();
   return (str === "admin" || str === "superadmin") ? "Admin" : "User";
+}
+
+/**
+ * Safe Email Dispatcher using Google Workspace MailApp & GmailApp
+ */
+function sendEmailSafely(to, subject, htmlBody) {
+  try {
+    if (!to || typeof to !== "string" || !to.includes("@")) return false;
+    MailApp.sendEmail({
+      to: to.trim(),
+      replyTo: PRIMARY_ADMIN_EMAIL,
+      name: SENDER_NAME,
+      subject: subject,
+      htmlBody: htmlBody,
+      body: htmlBody.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+    });
+    return true;
+  } catch (err) {
+    console.warn("MailApp sending error for " + to + ": " + err.toString());
+    try {
+      GmailApp.sendEmail(to.trim(), subject, htmlBody.replace(/<[^>]+>/g, ' '), {
+        htmlBody: htmlBody,
+        name: SENDER_NAME,
+        replyTo: PRIMARY_ADMIN_EMAIL
+      });
+      return true;
+    } catch (err2) {
+      console.error("GmailApp sending failed for " + to + ": " + err2.toString());
+      return false;
+    }
+  }
+}
+
+/**
+ * 1. Confirmation sent to candidate upon submitting application/resume
+ */
+function sendApplicationConfirmationEmail(data) {
+  const { candidateName, email, jobTitle, jobId, applicationId, resumeDriveUrl } = data;
+  const subject = `[ELVO HR] Application Received: ${jobTitle} (${applicationId})`;
+  
+  const html = `
+  <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #E2E8F0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+    <div style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); padding: 30px 24px; text-align: center; color: #ffffff;">
+      <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.5px;">ELVO HR</h1>
+      <p style="margin: 6px 0 0 0; font-size: 13px; color: #94A3B8;">Workforce Management & Talent Advisory</p>
+    </div>
+    <div style="padding: 28px 24px; color: #334155; font-size: 14px; line-height: 1.6;">
+      <h2 style="color: #0F172A; font-size: 18px; margin-top: 0;">Application Received</h2>
+      <p>Dear <strong>${candidateName}</strong>,</p>
+      <p>Thank you for submitting your application to <strong>ELVO HR</strong>. We confirm that your profile and resume have been securely received and recorded in our system.</p>
+      
+      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 16px; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+          <tr>
+            <td style="padding: 6px 0; color: #64748B; width: 42%;"><strong>Reference ID:</strong></td>
+            <td style="padding: 6px 0; color: #0F172A; font-weight: 600;">${applicationId}</td>
+          </tr>
+          <tr>
+            <td style="padding: 6px 0; color: #64748B;"><strong>Applied Position:</strong></td>
+            <td style="padding: 6px 0; color: #0F172A; font-weight: 600;">${jobTitle} (${jobId})</td>
+          </tr>
+          <tr>
+            <td style="padding: 6px 0; color: #64748B;"><strong>Current Status:</strong></td>
+            <td style="padding: 6px 0;"><span style="background: #E0F2FE; color: #0369A1; padding: 3px 10px; border-radius: 12px; font-weight: 600; font-size: 12px;">Received / Under Review</span></td>
+          </tr>
+          <tr>
+            <td style="padding: 6px 0; color: #64748B;"><strong>Date Received:</strong></td>
+            <td style="padding: 6px 0; color: #0F172A;">${new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
+          </tr>
+        </table>
+      </div>
+
+      <div style="background: #FEF9C3; border-left: 4px solid #EAB308; padding: 12px 16px; border-radius: 4px; color: #854D0E; font-size: 13px; line-height: 1.5; margin-bottom: 24px;">
+        <strong>Next Steps & Matching Policy:</strong><br>
+        Our talent acquisition consultants are actively screening incoming candidate profiles. If your qualifications match our active client requirements, our recruiters will contact you directly to schedule the first round of interviews. Furthermore, whenever similar career opportunities are published, our system will automatically notify you.
+      </div>
+
+      <div style="text-align: center; margin: 24px 0;">
+        <a href="https://elvohr.com/careers" style="background: #0284C7; color: #ffffff; text-decoration: none; padding: 11px 24px; border-radius: 6px; font-weight: 600; display: inline-block;">Browse All Active Openings</a>
+      </div>
+
+      <hr style="border: none; border-top: 1px solid #E2E8F0; margin: 24px 0 16px 0;" />
+      <p style="font-size: 12px; color: #64748B; margin: 0; line-height: 1.5;">
+        <strong>ELVO HR Services</strong><br>
+        Pocket D, Okhla Phase-2, Delhi 110020<br>
+        Inquiries: <a href="mailto:info@elvohr.com" style="color: #0284C7;">info@elvohr.com</a> | <a href="https://elvohr.com" style="color: #0284C7;">elvohr.com</a>
+      </p>
+    </div>
+  </div>`;
+
+  sendEmailSafely(email, subject, html);
+}
+
+/**
+ * 2. Alert sent to Admin (info@elvohr.com) upon new candidate application
+ */
+function sendAdminApplicationAlert(data) {
+  const {
+    candidateName, email, phone, degree, experience, 
+    portfolioUrl, coverNote, jobTitle, jobId, applicationId, 
+    resumeDriveUrl, resumeFileName
+  } = data;
+  
+  const subject = `[New Candidate Application] ${candidateName} applied for ${jobTitle} (${applicationId})`;
+  
+  const html = `
+  <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #E2E8F0; border-radius: 12px; overflow: hidden;">
+    <div style="background: #0F172A; padding: 20px 24px; color: #ffffff;">
+      <span style="background: #3B82F6; color: #ffffff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">New Application</span>
+      <h2 style="margin: 8px 0 0 0; font-size: 18px;">${candidateName} applied for ${jobTitle}</h2>
+      <p style="margin: 4px 0 0 0; font-size: 12px; color: #94A3B8;">Application ID: ${applicationId} | Job ID: ${jobId}</p>
+    </div>
+    <div style="padding: 24px; color: #334155; font-size: 14px; line-height: 1.6;">
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+        <tr><td style="padding: 4px 0; color: #64748B; width: 35%;"><strong>Candidate Name:</strong></td><td style="padding: 4px 0; color: #0F172A;">${candidateName}</td></tr>
+        <tr><td style="padding: 4px 0; color: #64748B;"><strong>Email:</strong></td><td style="padding: 4px 0;"><a href="mailto:${email}" style="color: #0284C7;">${email}</a></td></tr>
+        <tr><td style="padding: 4px 0; color: #64748B;"><strong>Phone:</strong></td><td style="padding: 4px 0; color: #0F172A;">${phone}</td></tr>
+        <tr><td style="padding: 4px 0; color: #64748B;"><strong>Education:</strong></td><td style="padding: 4px 0; color: #0F172A;">${degree || 'Not provided'}</td></tr>
+        <tr><td style="padding: 4px 0; color: #64748B;"><strong>Experience:</strong></td><td style="padding: 4px 0; color: #0F172A;">${experience || 'Fresher'}</td></tr>
+        <tr><td style="padding: 4px 0; color: #64748B;"><strong>Portfolio / LinkedIn:</strong></td><td style="padding: 4px 0;">${portfolioUrl ? `<a href="${portfolioUrl}" style="color: #0284C7;" target="_blank">${portfolioUrl}</a>` : 'Not provided'}</td></tr>
+        <tr><td style="padding: 4px 0; color: #64748B;"><strong>Resume File:</strong></td><td style="padding: 4px 0; color: #0F172A;">${resumeFileName || 'Resume uploaded'}</td></tr>
+      </table>
+
+      ${coverNote ? `
+      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 12px 16px; margin: 16px 0;">
+        <span style="font-size: 12px; font-weight: 700; color: #64748B;">Candidate Pitch / Statement:</span>
+        <p style="margin: 4px 0 0 0; color: #334155; font-style: italic;">"${coverNote}"</p>
+      </div>` : ''}
+
+      <div style="margin: 24px 0 16px 0; display: flex; gap: 12px;">
+        ${resumeDriveUrl ? `<a href="${resumeDriveUrl}" style="background: #10B981; color: #ffffff; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; display: inline-block; font-size: 13px;">View Resume in Google Drive &rarr;</a> ` : ''}
+        <a href="https://elvohr.com/portal-admin" style="background: #0F172A; color: #ffffff; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; display: inline-block; font-size: 13px;">Review in Admin Portal &rarr;</a>
+      </div>
+    </div>
+  </div>`;
+
+  sendEmailSafely(PRIMARY_ADMIN_EMAIL, subject, html);
+}
+
+/**
+ * 3. Alert sent when a new job is posted (to poster and info@elvohr.com)
+ */
+function sendJobPostedAlert(posterEmail, job) {
+  const { jobId, title, department, location, type, salary, experience, overview } = job;
+  const subject = `[ELVO HR] Job Opening Published: ${title} (${jobId})`;
+
+  const html = `
+  <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #E2E8F0; border-radius: 12px; overflow: hidden;">
+    <div style="background: #0F172A; padding: 22px 24px; color: #ffffff; text-align: center;">
+      <h2 style="margin: 0; font-size: 20px;">Job Opening Published</h2>
+      <p style="margin: 4px 0 0 0; font-size: 13px; color: #94A3B8;">${title} &bull; ${jobId}</p>
+    </div>
+    <div style="padding: 24px; color: #334155; font-size: 14px; line-height: 1.6;">
+      <p>A new career opening has been published by <strong>${posterEmail || 'Admin Team'}</strong> and is now live on <a href="https://elvohr.com/careers" style="color: #0284C7;">elvohr.com/careers</a> and indexed for Google for Jobs.</p>
+      
+      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 16px; margin: 16px 0;">
+        <p style="margin: 3px 0;"><strong>Job Title:</strong> ${title}</p>
+        <p style="margin: 3px 0;"><strong>Department:</strong> ${department || 'General'}</p>
+        <p style="margin: 3px 0;"><strong>Location:</strong> ${location || 'Delhi / Hybrid'}</p>
+        <p style="margin: 3px 0;"><strong>Employment Type:</strong> ${type || 'Full-time'}</p>
+        <p style="margin: 3px 0;"><strong>Experience Level:</strong> ${experience || 'Any'}</p>
+        <p style="margin: 3px 0;"><strong>Compensation:</strong> ${salary || 'Competitive'}</p>
+        ${overview ? `<p style="margin: 8px 0 0 0; color: #64748B;"><em>${overview}</em></p>` : ''}
+      </div>
+
+      <div style="text-align: center; margin: 24px 0 12px 0;">
+        <a href="https://elvohr.com/careers/${jobId}" style="background: #0284C7; color: #ffffff; text-decoration: none; padding: 11px 24px; border-radius: 6px; font-weight: 600; display: inline-block;">View Live Job Opening</a>
+      </div>
+    </div>
+  </div>`;
+
+  // Send to primary admin
+  sendEmailSafely(PRIMARY_ADMIN_EMAIL, subject, html);
+
+  // If posted by a different user/email, send confirmation to poster as well
+  if (posterEmail && String(posterEmail).trim().toLowerCase() !== PRIMARY_ADMIN_EMAIL.toLowerCase()) {
+    sendEmailSafely(posterEmail, subject, html);
+  }
+}
+
+/**
+ * 4. Automated matching alert sent to past candidates when a similar job is posted
+ */
+function sendSingleCandidateJobAlert(toEmail, candidateName, job) {
+  const { jobId, title, department, location, type, salary, overview } = job;
+  const subject = `[ELVO HR Career Opportunity] New Opening Matching Your Background: ${title}`;
+
+  const html = `
+  <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #E2E8F0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+    <div style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); padding: 24px; text-align: center; color: #ffffff;">
+      <h2 style="margin: 0; font-size: 20px;">New Opportunity Matching Your Profile</h2>
+      <p style="margin: 6px 0 0 0; font-size: 13px; color: #94A3B8;">ELVO HR Talent Network</p>
+    </div>
+    <div style="padding: 24px; color: #334155; font-size: 14px; line-height: 1.6;">
+      <p>Dear <strong>${candidateName}</strong>,</p>
+      <p>We noticed you previously submitted your resume with ELVO HR. A new job opening has just been posted that closely aligns with your field and experience:</p>
+      
+      <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 8px; padding: 16px; margin: 20px 0;">
+        <h3 style="margin: 0 0 8px 0; color: #166534; font-size: 16px;">${title}</h3>
+        <p style="margin: 4px 0; color: #374151; font-size: 13px;">📍 ${location || 'Delhi / Hybrid'} &bull; 💼 ${type || 'Full-time'} &bull; 💰 ${salary || 'Competitive'}</p>
+        <p style="margin: 8px 0 0 0; color: #4B5563; font-size: 13px;">${overview || 'View full job description, key responsibilities, and qualifications on the portal.'}</p>
+      </div>
+
+      <div style="text-align: center; margin: 24px 0;">
+        <a href="https://elvohr.com/careers/${jobId}" style="background: #16A34A; color: #ffffff; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; display: inline-block;">View Position & Apply Now</a>
+      </div>
+
+      <hr style="border: none; border-top: 1px solid #E2E8F0; margin: 24px 0 16px 0;" />
+      <p style="font-size: 11px; color: #94A3B8; text-align: center; margin: 0;">
+        You received this email because you previously applied with ELVO HR Services.<br>
+        Pocket D, Okhla Phase-2, Delhi 110020 &bull; <a href="mailto:info@elvohr.com" style="color: #0284C7;">info@elvohr.com</a>
+      </p>
+    </div>
+  </div>`;
+
+  sendEmailSafely(toEmail, subject, html);
+}
+
+function sendMatchingJobAlertToCandidates(job) {
+  try {
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = ss.getSheetByName("Applications");
+    if (!sheet) return;
+    const rows = sheet.getDataRange().getValues();
+    if (rows.length <= 1) return;
+
+    const notifiedEmails = new Set();
+    const keywords = (job.title + " " + (job.department || "")).toLowerCase().split(/\s+/).filter(w => w.length > 2);
+
+    for (let i = 1; i < rows.length; i++) {
+      const email = String(rows[i][4] || "").trim().toLowerCase();
+      const name = rows[i][3] || "Candidate";
+      const pastJob = String(rows[i][2] || "").toLowerCase();
+      const pastDegree = String(rows[i][6] || "").toLowerCase();
+
+      if (!email || notifiedEmails.has(email) || !email.includes("@")) continue;
+
+      const isGeneral = pastJob.includes("general") || pastJob.includes("open");
+      const hasMatch = keywords.some(kw => pastJob.includes(kw) || pastDegree.includes(kw));
+
+      if (isGeneral || hasMatch) {
+        notifiedEmails.add(email);
+        sendSingleCandidateJobAlert(email, name, job);
+      }
+    }
+  } catch (err) {
+    console.error("sendMatchingJobAlertToCandidates error: " + err.toString());
+  }
+}
+
+/**
+ * 5. Automated status update email sent to candidate when admin modifies status
+ */
+function sendApplicationStatusUpdateEmail(candidateEmail, candidateName, jobTitle, applicationId, newStatus) {
+  if (!candidateEmail || !candidateEmail.includes("@")) return;
+  const subject = `[ELVO HR] Status Update: Application for ${jobTitle} (${applicationId})`;
+
+  const html = `
+  <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #E2E8F0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+    <div style="background: #0F172A; padding: 24px; text-align: center; color: #ffffff;">
+      <h2 style="margin: 0; font-size: 20px;">Application Status Update</h2>
+      <p style="margin: 6px 0 0 0; font-size: 13px; color: #94A3B8;">ELVO HR Talent Acquisition</p>
+    </div>
+    <div style="padding: 24px; color: #334155; font-size: 14px; line-height: 1.6;">
+      <p>Dear <strong>${candidateName || 'Candidate'}</strong>,</p>
+      <p>The review status of your application for <strong>${jobTitle}</strong> (ID: <strong>${applicationId}</strong>) has been updated:</p>
+      
+      <div style="text-align: center; margin: 24px 0;">
+        <span style="background: #E0F2FE; color: #0369A1; padding: 10px 24px; border-radius: 20px; font-size: 16px; font-weight: 700; border: 1px solid #BAE6FD; display: inline-block;">
+          ${newStatus}
+        </span>
+      </div>
+
+      <p>Our recruitment team reviews applicant batches progressively. If any follow-up assessments or interviews are required, our HR specialists will reach out to you directly with scheduling details.</p>
+
+      <div style="text-align: center; margin: 24px 0 16px 0;">
+        <a href="https://elvohr.com/careers" style="background: #0284C7; color: #ffffff; text-decoration: none; padding: 10px 22px; border-radius: 6px; font-weight: 600; display: inline-block;">Visit Careers Portal</a>
+      </div>
+
+      <hr style="border: none; border-top: 1px solid #E2E8F0; margin: 24px 0 16px 0;" />
+      <p style="font-size: 12px; color: #64748B; margin: 0;">
+        <strong>ELVO HR Services</strong> &bull; Pocket D, Okhla Phase-2, Delhi 110020<br>
+        Contact: <a href="mailto:info@elvohr.com" style="color: #0284C7;">info@elvohr.com</a>
+      </p>
+    </div>
+  </div>`;
+
+  sendEmailSafely(candidateEmail, subject, html);
 }
 
 /**
@@ -376,11 +666,37 @@ function doPost(e) {
         "New"
       ]);
 
+      // 1. Dispatch confirmation email to student / candidate
+      sendApplicationConfirmationEmail({
+        candidateName,
+        email,
+        jobTitle: jobTitle || "General Open Application",
+        jobId: jobId || "GENERAL",
+        applicationId,
+        resumeDriveUrl
+      });
+
+      // 2. Dispatch alert to Admin team (info@elvohr.com)
+      sendAdminApplicationAlert({
+        candidateName,
+        email,
+        phone,
+        degree,
+        experience,
+        portfolioUrl,
+        coverNote,
+        jobTitle: jobTitle || "General Open Application",
+        jobId: jobId || "GENERAL",
+        applicationId,
+        resumeDriveUrl,
+        resumeFileName
+      });
+
       return createJsonResponse({ 
         success: true, 
         applicationId: applicationId,
         resumeDriveUrl: resumeDriveUrl,
-        message: "Application submitted successfully to ELVO HR team!" 
+        message: "Application submitted successfully! Confirmation email dispatched to candidate and notification sent to info@elvohr.com." 
       });
     }
 
@@ -421,10 +737,33 @@ function doPost(e) {
         postedDate
       ]);
 
+      // 1. Dispatch notification to job poster & admin info@elvohr.com
+      sendJobPostedAlert(payload.adminEmail, {
+        jobId,
+        title,
+        department,
+        location,
+        type,
+        salary,
+        experience,
+        overview
+      });
+
+      // 2. Dispatch alert to students/candidates who previously uploaded resumes for similar roles
+      sendMatchingJobAlertToCandidates({
+        jobId,
+        title,
+        department,
+        location,
+        type,
+        salary,
+        overview
+      });
+
       return createJsonResponse({ 
         success: true, 
         jobId: jobId, 
-        message: `Job opening '${title}' (${jobId}) posted successfully to Google Sheets!` 
+        message: `Job opening '${title}' (${jobId}) posted successfully! Notifications dispatched to poster, info@elvohr.com, and matching candidates.` 
       });
     }
 
@@ -465,7 +804,17 @@ function doPost(e) {
       for (let i = 1; i < rows.length; i++) {
         if (rows[i][0] === applicationId) {
           sheet.getRange(i + 1, 14).setValue(status); // Column 14 is Status
-          return createJsonResponse({ success: true, message: `Application status updated to ${status}` });
+
+          // Dispatch status update email to candidate
+          const candName = rows[i][3];
+          const candEmail = rows[i][4];
+          const candJobTitle = rows[i][2];
+          sendApplicationStatusUpdateEmail(candEmail, candName, candJobTitle, applicationId, status);
+
+          return createJsonResponse({ 
+            success: true, 
+            message: `Application status updated to '${status}'. Status update notification sent to candidate.` 
+          });
         }
       }
 
