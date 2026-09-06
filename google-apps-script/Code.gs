@@ -118,8 +118,6 @@ function setupSheets() {
     ]);
   }
 
-  }
-
   // Ensure Google Drive folder for candidate resumes is created
   const resumeFolder = getOrCreateResumeFolder();
 
