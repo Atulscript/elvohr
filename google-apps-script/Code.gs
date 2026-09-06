@@ -118,7 +118,25 @@ function setupSheets() {
     ]);
   }
 
-  return { jobsSheet, appsSheet, adminsSheet };
+  }
+
+  // Ensure Google Drive folder for candidate resumes is created
+  const resumeFolder = getOrCreateResumeFolder();
+
+  return { jobsSheet, appsSheet, adminsSheet, resumeFolder };
+}
+
+/**
+ * ONE-CLICK SETUP FUNCTION
+ * Run this directly from the Apps Script toolbar (select 'initialSetup' -> click 'Run')
+ * to instantly create all Sheets tabs and the 'ELVO_HR_Resumes' Google Drive folder!
+ */
+function initialSetup() {
+  const result = setupSheets();
+  Logger.log("✅ Setup Complete!");
+  Logger.log("📁 Google Drive Resume Folder: " + result.resumeFolder.getName());
+  Logger.log("🔗 Folder Link: " + result.resumeFolder.getUrl());
+  return "Setup successful! Drive folder created at: " + result.resumeFolder.getUrl();
 }
 
 /**
