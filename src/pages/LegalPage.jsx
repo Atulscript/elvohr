@@ -107,6 +107,7 @@ const LegalPage = () => {
         description={`Read the official ${content.title} of ELVO HR Services. Learn about our terms, privacy policies, candidate data protections, and corporate compliance.`}
         keywords={legalKeywords}
         canonicalUrl={`https://elvohr.com${pathname}`}
+        robots="noindex, nofollow"
       />
       <div className="container">
         <div className="legal-card card">
