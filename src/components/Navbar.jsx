@@ -36,8 +36,8 @@ const Navbar = () => {
       {/* Main Navbar */}
       <nav className="navbar">
         <div className="container nav-container">
-          <NavLink to="/" className="logo-link">
-            <img src={logoImg} alt="ELVO HR Logo" className="logo-img" />
+          <NavLink to="/" className="logo-link" aria-label="ELVO HR Home">
+            <img src={logoImg} alt="ELVO HR Logo" className="logo-img" width="217" height="49" />
           </NavLink>
           
           {/* Desktop Navigation links with Icons */}

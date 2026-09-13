@@ -10,7 +10,7 @@ const ServicesPage = () => {
         description="Comprehensive HR services: Permanent Recruitment, Contract Staffing, Payroll Management, Statutory Labor Compliance, and Custom Workforce Solutions."
         canonical="/services"
       />
-      <Services />
+      <Services isPage={true} />
     </div>
   );
 };

@@ -25,7 +25,15 @@ const Footer = () => {
           {/* Column 1: Logo & Socials */}
           <div className="footer-col col-info">
             <div className="footer-logo-container">
-              <img src={logoImg} alt="ELVO HR Logo" className="footer-logo-img" />
+              <img 
+                src={logoImg} 
+                alt="ELVO HR Logo" 
+                className="footer-logo-img" 
+                width="200" 
+                height="45" 
+                loading="lazy" 
+                decoding="async" 
+              />
             </div>
             <p className="footer-desc">
               Your trusted partner for end-to-end HR solutions. Empowering lives. Valuing organizations.

@@ -23,7 +23,7 @@ const ContactPage = () => {
       />
       <div className="container">
         <div className="section-header text-center">
-          <h2>Contact <span className="text-accent">Us</span></h2>
+          <h1>Contact <span className="text-accent">Us</span></h1>
           <p className="subtitle">Get in touch with our HR consultants and hiring team.</p>
         </div>
 
@@ -47,15 +47,18 @@ const ContactPage = () => {
                 <button className="btn btn-primary" onClick={() => setSubmitted(false)}>Send another message</button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="contact-form">
+              <form onSubmit={handleSubmit} className="contact-form" aria-label="Contact ELVO HR Form">
                 <div className="form-group">
                   <label htmlFor="name">Name</label>
                   <input
                     type="text"
                     id="name"
+                    name="name"
+                    autoComplete="name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
+                    aria-required="true"
                   />
                 </div>
                 <div className="form-group">
@@ -63,9 +66,12 @@ const ContactPage = () => {
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    autoComplete="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
+                    aria-required="true"
                   />
                 </div>
                 <div className="form-group">

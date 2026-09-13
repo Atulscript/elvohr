@@ -205,7 +205,7 @@ const IndustrySection = () => {
           <div className="showcase-content-box">
             <div className="showcase-header">
               <span className="industry-tag">Sector Profile</span>
-              <h2>{activeIndustry.name}</h2>
+              <h3>{activeIndustry.name}</h3>
             </div>
             
             <p className="industry-description">{activeIndustry.description}</p>

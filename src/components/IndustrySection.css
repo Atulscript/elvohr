@@ -174,7 +174,8 @@
   margin-bottom: 6px;
 }
 
-.showcase-header h2 {
+.showcase-header h2,
+.showcase-header h3 {
   font-size: 2.1rem;
   color: var(--md-sys-color-primary);
   font-weight: 700;

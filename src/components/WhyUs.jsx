@@ -39,7 +39,15 @@ const WhyUs = () => {
           </div>
           
           <div className="why-us-image-container reveal-on-scroll stagger-2">
-            <img src={`${import.meta.env.BASE_URL}why-us.jpg`} alt="Partner with ELVO HR" className="why-us-img" />
+            <img 
+              src={`${import.meta.env.BASE_URL}why-us.jpg`} 
+              alt="Partner with ELVO HR" 
+              className="why-us-img" 
+              width="500" 
+              height="380" 
+              loading="lazy" 
+              decoding="async" 
+            />
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
   Search, Upload, Briefcase, MapPin, Clock, IndianRupee, 
-  ArrowRight, Sparkles, RefreshCw, Share2, Check, Link2,
+  ArrowRight, Sparkles, RefreshCw, Share2, Check,
   ChevronLeft, ChevronRight 
 } from 'lucide-react';
 import { fetchJobs } from '../services/jobPortalService';
@@ -150,7 +150,7 @@ const Careers = ({ initialJobId }) => {
           <div className="careers-header-badge">
             <Sparkles size={16} /> Verified Career Opportunities
           </div>
-          <h2>Find Your Next <span className="text-accent">Career Move</span></h2>
+          <h1>Find Your Next <span className="text-accent">Career Move</span></h1>
           <p className="subtitle">
             Explore curated job openings, internships, and associate programs with ELVO HR and partner enterprises.
           </p>

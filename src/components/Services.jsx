@@ -3,7 +3,7 @@ import './Services.css';
 import { Briefcase, Users, FileText, CheckSquare, Globe, Building, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const Services = () => {
+const Services = ({ isPage = false }) => {
   const services = [
     {
       icon: <Users size={32} />,
@@ -41,7 +41,11 @@ const Services = () => {
     <section id="services" className="section services-section">
       <div className="container">
         <div className="section-header text-center reveal-on-scroll">
-          <h2>Our <span className="text-accent">Services</span></h2>
+          {isPage ? (
+            <h1>Our <span className="text-accent">Services</span></h1>
+          ) : (
+            <h2>Our <span className="text-accent">Services</span></h2>
+          )}
           <p className="subtitle">
             Comprehensive HR solutions tailored to your unique business needs.
           </p>

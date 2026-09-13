@@ -43,7 +43,7 @@ function parseSalary(salaryStr) {
 /**
  * Builds Google for Jobs (JobPosting) structured data schema
  */
-export function buildJobSchema(job) {
+function buildJobSchema(job) {
   if (!job) return null;
 
   const isRemote = job.location?.toLowerCase().includes('remote');
@@ -213,13 +213,26 @@ const SEO = ({
 
     let schemaData = [];
 
+    // WebSite Schema with Sitelinks SearchBox
+    schemaData.push({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'ELVO HR',
+      url: 'https://elvohr.com',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: 'https://elvohr.com/careers?q={search_term_string}',
+        'query-input': 'required name=search_term_string'
+      }
+    });
+
     // Organization Schema
     schemaData.push({
       '@context': 'https://schema.org',
       '@type': 'EmploymentAgency',
       name: 'ELVO HR',
       url: 'https://elvohr.com',
-      logo: 'https://elvohr.com/assets/logo.png',
+      logo: 'https://elvohr.com/logo.png',
       image: 'https://elvohr.com/hero-creative.png',
       description: 'Premier human resources and staffing solutions partner in India.',
       telephone: '+91-1800-22-4456',
@@ -232,6 +245,39 @@ const SEO = ({
         addressCountry: 'IN'
       }
     });
+
+    // Dynamic BreadcrumbList Schema
+    if (typeof window !== 'undefined') {
+      const pathSegments = window.location.pathname.split('/').filter(Boolean);
+      if (pathSegments.length > 0) {
+        const breadcrumbItems = [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://elvohr.com/'
+          }
+        ];
+
+        let runningPath = '';
+        pathSegments.forEach((segment, idx) => {
+          runningPath += `/${segment}`;
+          const cleanName = segment.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+          breadcrumbItems.push({
+            '@type': 'ListItem',
+            position: idx + 2,
+            name: cleanName,
+            item: `https://elvohr.com${runningPath}`
+          });
+        });
+
+        schemaData.push({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: breadcrumbItems
+        });
+      }
+    }
 
     // Single Job Google for Jobs Schema
     if (job) {
@@ -247,7 +293,7 @@ const SEO = ({
       });
     }
 
-    scriptEl.textContent = JSON.stringify(schemaData.length === 1 ? schemaData[0] : schemaData);
+    scriptEl.textContent = JSON.stringify(schemaData);
   }, [title, description, keywords, canonical, ogType, ogImage, job, jobsList]);
 
   return null;

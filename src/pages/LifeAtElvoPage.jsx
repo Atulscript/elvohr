@@ -10,7 +10,7 @@ const LifeAtElvoPage = () => {
         description="Experience the dynamic workplace culture, team celebrations, corporate offsites, and community impact at ELVO HR."
         canonical="/life-at-elvo"
       />
-      <LifeAtElvo />
+      <LifeAtElvo isPage={true} />
     </div>
   );
 };

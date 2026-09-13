@@ -2,13 +2,17 @@ import React from 'react';
 import './About.css';
 import { Target, Lightbulb } from 'lucide-react';
 
-const About = () => {
+const About = ({ isPage = false }) => {
   return (
     <section id="about" className="section about-section">
       <div className="container">
         
         <div className="section-header text-center reveal-on-scroll">
-          <h2>Who We <span className="text-accent">Are</span></h2>
+          {isPage ? (
+            <h1>Who We <span className="text-accent">Are</span></h1>
+          ) : (
+            <h2>Who We <span className="text-accent">Are</span></h2>
+          )}
           <p className="subtitle">
             ELVO HR is a comprehensive Human Resources consulting and workforce solutions company dedicated to helping organizations build agile, compliant, and high-performing workforces.
           </p>

@@ -11,7 +11,7 @@ const AboutPage = () => {
         description="Learn about ELVO HR's leadership, client-first philosophy, corporate governance, and commitment to empowering lives while valuing organizations."
         canonical="/about"
       />
-      <About />
+      <About isPage={true} />
       <Values />
     </div>
   );

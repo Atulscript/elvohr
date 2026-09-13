@@ -1,9 +1,13 @@
-import React, { lazy, Suspense, useState, createContext } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
 import ScrollToTop from './components/ScrollToTop';
+import CtaBanner from './components/CtaBanner';
+import useScrollReveal from './hooks/useScrollReveal';
+import { AlertContext } from './context/AlertContext';
+import './App.css';
 
 const Home = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
@@ -13,17 +17,6 @@ const LifeAtElvoPage = lazy(() => import('./pages/LifeAtElvoPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const LegalPage = lazy(() => import('./pages/LegalPage'));
 const PortalAdminPage = lazy(() => import('./pages/PortalAdminPage'));
-
-import './App.css';
-
-// Create a global context for triggering careers navigation if referenced
-export const AlertContext = createContext(() => {
-  window.location.href = '/careers';
-});
-
-import { useLocation } from 'react-router-dom';
-import CtaBanner from './components/CtaBanner';
-import useScrollReveal from './hooks/useScrollReveal';
 
 // Sub-component to have access to router location context
 function AppContent() {

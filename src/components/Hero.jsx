@@ -31,7 +31,15 @@ const Hero = () => {
           </div>
           
           <div className="hero-creative-container animate-fade-in delay-2">
-            <img src={`${import.meta.env.BASE_URL}hero-creative.png`} alt="ELVO HR Connecting Talent" className="hero-creative-image" />
+            <img 
+              src={`${import.meta.env.BASE_URL}hero-creative.png`} 
+              alt="ELVO HR Connecting Talent" 
+              className="hero-creative-image" 
+              width="480" 
+              height="410" 
+              fetchPriority="high" 
+              decoding="async" 
+            />
           </div>
 
         </div>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { X, MapPin, Clock, IndianRupee, CheckCircle2, Award, Calendar, ArrowRight, Share2, Copy, Check, ExternalLink } from 'lucide-react';
+import { X, MapPin, Clock, IndianRupee, CheckCircle2, Award, Calendar, ArrowRight, Share2, Copy, Check } from 'lucide-react';
 import './JobDetailModal.css';
 
-const JobDetailModal = ({ job, isOpen, onClose, onApply, onShare }) => {
+const JobDetailModal = ({ job, isOpen, onClose, onApply, onShare: _onShare }) => {
   const [copied, setCopied] = useState(false);
 
   if (!isOpen || !job) return null;
