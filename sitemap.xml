@@ -37,24 +37,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://elvohr.com/privacy</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://elvohr.com/terms</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://elvohr.com/cookies</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
 
   <!-- Job Openings (Direct Career Links for Google for Jobs & Web Crawlers) -->
   <url>
