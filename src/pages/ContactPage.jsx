@@ -18,8 +18,8 @@ const ContactPage = () => {
       <SEO 
         title="Contact Us | Hire Talent & HR Advisory | ELVO HR"
         description="Connect with ELVO HR consultants for end-to-end recruitment, staffing solutions, payroll management, and workplace advisory across India."
-        keywords="contact elvo hr, hire talent, hr advisory, staffing solutions delhi, corporate recruitment partner"
-        canonicalUrl="https://elvohr.com/contact"
+        keywords="contact ELVO HR, hire talent India, HR advisory services, staffing solutions Delhi, corporate recruitment partner, payroll support query"
+        canonical="/contact"
       />
       <div className="container">
         <div className="section-header text-center">

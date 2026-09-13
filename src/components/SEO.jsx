@@ -139,11 +139,13 @@ function buildJobSchema(job) {
  */
 const SEO = ({
   title = 'ELVO HR - End-to-End HR & Workforce Management Solutions',
-  description = 'Your trusted HR partner across recruitment, staffing, payroll management, and statutory compliance in India.',
-  keywords = 'HR consultancy, staffing agency, recruitment in India, payroll services, compliance, jobs in Delhi',
+  description = 'Your trusted human resources solutions partner in India. Premier corporate staffing, executive recruitment, payroll outsourcing, and statutory labor compliance.',
+  keywords = 'ELVO HR, HR solutions India, corporate staffing agency, permanent recruitment services, payroll outsourcing India, statutory compliance partner, talent acquisition company, workforce management Delhi NCR',
   canonical = '',
+  canonicalUrl = '',
   ogType = 'website',
-  ogImage = 'https://elvohr.com/hero-creative.png',
+  ogImage = 'https://elvohr.com/logo.png',
+  robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   job = null,
   jobsList = null
 }) => {
@@ -179,18 +181,19 @@ const SEO = ({
     // 2. Standard Meta Tags
     setMeta('name', 'description', description);
     setMeta('name', 'keywords', keywords);
-    setMeta('name', 'robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+    setMeta('name', 'robots', robots);
 
     // 3. Canonical URL
-    const canonicalUrl = canonical 
-      ? (canonical.startsWith('http') ? canonical : `https://elvohr.com${canonical}`)
+    const activeCanonical = canonical || canonicalUrl;
+    const finalCanonicalUrl = activeCanonical 
+      ? (activeCanonical.startsWith('http') ? activeCanonical : `https://elvohr.com${activeCanonical}`)
       : window.location.href;
-    setLink('canonical', canonicalUrl);
+    setLink('canonical', finalCanonicalUrl);
 
     // 4. OpenGraph (Facebook / LinkedIn)
     setMeta('property', 'og:title', fullTitle);
     setMeta('property', 'og:description', description);
-    setMeta('property', 'og:url', canonicalUrl);
+    setMeta('property', 'og:url', finalCanonicalUrl);
     setMeta('property', 'og:type', ogType);
     setMeta('property', 'og:site_name', 'ELVO HR');
     setMeta('property', 'og:image', ogImage);
@@ -294,7 +297,7 @@ const SEO = ({
     }
 
     scriptEl.textContent = JSON.stringify(schemaData);
-  }, [title, description, keywords, canonical, ogType, ogImage, job, jobsList]);
+  }, [title, description, keywords, canonical, canonicalUrl, robots, ogType, ogImage, job, jobsList]);
 
   return null;
 };

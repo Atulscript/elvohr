@@ -12,6 +12,7 @@ import {
   fetchAdminUsers, addAdminUser, updateUserPassword, deleteAdminUser,
   getScriptUrl, setScriptUrl, testScriptConnection
 } from '../services/jobPortalService';
+import SEO from '../components/SEO';
 import './PortalAdminPage.css';
 
 const PortalAdminPage = () => {
@@ -422,6 +423,12 @@ const PortalAdminPage = () => {
   if (!currentUser) {
     return (
       <div className="admin-login-wrapper section">
+        <SEO 
+          title="Associate & Admin Portal | ELVO HR"
+          description="Authorized associate and administrative access portal for ELVO HR."
+          canonical="/portal-admin"
+          robots="noindex, nofollow"
+        />
         <div className="container">
           <div className="admin-login-card card animate-scale-up">
             <div className="admin-icon-box">
@@ -498,6 +505,12 @@ const PortalAdminPage = () => {
 
   return (
     <div className="portal-admin-page section">
+      <SEO 
+        title="Careers Administration Hub | ELVO HR"
+        description="Authorized administrative dashboard for ELVO HR."
+        canonical="/portal-admin"
+        robots="noindex, nofollow"
+      />
       <div className="container">
         
         {/* Top Header Bar */}

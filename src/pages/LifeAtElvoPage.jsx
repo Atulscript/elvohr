@@ -8,6 +8,7 @@ const LifeAtElvoPage = () => {
       <SEO 
         title="Life at ELVO - Culture, Community & Team Spirit | ELVO HR"
         description="Experience the dynamic workplace culture, team celebrations, corporate offsites, and community impact at ELVO HR."
+        keywords="life at ELVO HR, ELVO HR company culture, employee celebrations, work life balance, team collaboration, modern office culture Delhi, associate wellness programs"
         canonical="/life-at-elvo"
       />
       <LifeAtElvo isPage={true} />

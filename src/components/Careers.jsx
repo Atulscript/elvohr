@@ -134,11 +134,16 @@ const Careers = ({ initialJobId }) => {
 
   const seoCanonical = activeSeoJob ? `/careers/${activeSeoJob.id}` : '/careers';
 
+  const seoKeywords = activeSeoJob
+    ? `${activeSeoJob.title}, ${activeSeoJob.title} in ${activeSeoJob.location}, ${activeSeoJob.department || 'Corporate'} jobs, ${activeSeoJob.type || 'Full Time'} jobs, ELVO HR job openings, apply online`
+    : 'ELVO HR careers, verified job openings, IT jobs India, banking jobs, sales careers, freshers jobs, corporate hiring Delhi, contract jobs, remote jobs India';
+
   return (
     <section id="careers" className="section careers-section">
       <SEO 
         title={seoTitle}
         description={seoDesc}
+        keywords={seoKeywords}
         canonical={seoCanonical}
         job={activeSeoJob || null}
         jobsList={!activeSeoJob ? jobs : null}

@@ -11,6 +11,7 @@ const Home = () => {
       <SEO 
         title="ELVO HR - End-to-End HR & Workforce Management Solutions"
         description="Your trusted human resources solutions partner in India. Premier corporate staffing, executive recruitment, payroll outsourcing, and statutory labor compliance."
+        keywords="ELVO HR, HR solutions India, workforce management, corporate staffing agency, permanent recruitment services, payroll outsourcing India, statutory compliance partner, talent acquisition company, HR consultancy Delhi NCR"
         canonical="/"
       />
       <Hero />

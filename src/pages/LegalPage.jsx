@@ -93,11 +93,19 @@ const LegalPage = () => {
 
   const content = getContent();
 
+  const keywordsMap = {
+    '/privacy': 'ELVO HR privacy policy, candidate data protection, resume confidentiality, HR data privacy, candidate information security',
+    '/terms': 'ELVO HR terms of use, terms and conditions, staffing services agreement, candidate terms of service',
+    '/cookies': 'ELVO HR cookie policy, cookie preferences, web tracking disclosure, user privacy settings'
+  };
+  const legalKeywords = keywordsMap[pathname] || 'ELVO HR legal notice, compliance, policies';
+
   return (
     <div className="legal-page-wrapper section">
       <SEO 
         title={`${content.title} | ELVO HR Services`}
         description={`Read the official ${content.title} of ELVO HR Services. Learn about our terms, privacy policies, candidate data protections, and corporate compliance.`}
+        keywords={legalKeywords}
         canonicalUrl={`https://elvohr.com${pathname}`}
       />
       <div className="container">
