@@ -102,7 +102,10 @@ const LegalPage = () => {
       />
       <div className="container">
         <div className="legal-card card">
-          <h1 className="legal-title">{content.title}</h1>
+          <h1 className="legal-title">
+            {content.title.split(' ').slice(0, -1).join(' ')}{' '}
+            <span className="text-accent">{content.title.split(' ').slice(-1)[0]}</span>
+          </h1>
           <p className="legal-meta">Last updated: {content.lastUpdated}</p>
           <div className="legal-content">
             {content.sections.map((sec, idx) => (

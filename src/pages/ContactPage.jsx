@@ -23,13 +23,13 @@ const ContactPage = () => {
       />
       <div className="container">
         <div className="section-header text-center">
-          <h2>Contact Us</h2>
+          <h2>Contact <span className="text-accent">Us</span></h2>
           <p className="subtitle">Get in touch with our HR consultants and hiring team.</p>
         </div>
 
         <div className="contact-grid">
           <div className="contact-info card">
-            <h3>Get in Touch</h3>
+            <h3>Get in <span className="text-accent">Touch</span></h3>
             <p>Whether you're looking for stellar talent or your next career path, ELVO HR is here to support you.</p>
             
             <ul className="info-list">

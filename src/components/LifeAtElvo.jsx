@@ -13,7 +13,7 @@ const LifeAtElvo = () => {
     <section id="life" className="section life-section">
       <div className="container">
         <div className="section-header text-center">
-          <h2>Life at ELVO HR</h2>
+          <h2>Life at ELVO <span className="text-accent">HR</span></h2>
           <p className="subtitle">
             Culture, Celebrations, and the People who make it happen.
           </p>

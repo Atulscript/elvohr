@@ -150,7 +150,7 @@ const Careers = ({ initialJobId }) => {
           <div className="careers-header-badge">
             <Sparkles size={16} /> Verified Career Opportunities
           </div>
-          <h2>Find Your Next Career Move</h2>
+          <h2>Find Your Next <span className="text-accent">Career Move</span></h2>
           <p className="subtitle">
             Explore curated job openings, internships, and associate programs with ELVO HR and partner enterprises.
           </p>
@@ -208,7 +208,7 @@ const Careers = ({ initialJobId }) => {
         {/* Active Openings Section */}
         <div className="openings-header-row" id="active-openings">
           <div className="openings-count-box">
-            <h3>Active Openings</h3>
+            <h3>Active <span className="text-accent">Openings</span></h3>
             <span className="count-tag">
               {isPaginated 
                 ? `${totalFilteredJobs} Positions (Page ${currentPage} of ${totalPages})`
@@ -383,7 +383,7 @@ const Careers = ({ initialJobId }) => {
               <Upload size={32} className="open-app-icon" />
             </div>
             <div className="open-app-text">
-              <h3>Can't find the exact position you're looking for?</h3>
+              <h3>Can't find the right <span className="text-accent">opportunity?</span></h3>
               <p>
                 Submit your open application and upload your resume. Our recruitment directors review incoming profiles daily and will contact you when a matching corporate role opens up.
               </p>
@@ -400,14 +400,14 @@ const Careers = ({ initialJobId }) => {
         {/* Industry and Opportunity Highlights */}
         <div className="careers-grid">
           <div className="careers-list-box card">
-            <h3>Find Opportunities Across Industries</h3>
+            <h3>Find Opportunities Across <span className="text-accent">Industries</span></h3>
             <ul className="pill-list">
               {industries.map((ind, i) => <li key={i} className="pill">{ind}</li>)}
             </ul>
           </div>
           
           <div className="careers-list-box card">
-            <h3>Explore Diverse Employment Types</h3>
+            <h3>Explore Diverse <span className="text-accent">Employment Types</span></h3>
             <ul className="pill-list">
               {opportunities.map((opp, i) => <li key={i} className="pill">{opp}</li>)}
             </ul>

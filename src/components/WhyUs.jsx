@@ -16,9 +16,9 @@ const WhyUs = () => {
         <div className="why-us-content">
           <div className="why-us-text">
             <div className="section-header text-left">
-              <h2>Why ELVO HR</h2>
+              <h2>Why ELVO <span className="text-accent">HR</span></h2>
             </div>
-            <p className="subtitle text-accent">
+            <p className="subtitle">
               Organizations choose ELVO HR because we combine industry expertise with personalized service to deliver practical, scalable, and compliant HR solutions.
             </p>
             <p>

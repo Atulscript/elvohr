@@ -53,7 +53,7 @@
 /* Flared Tab (using clip-path, styled in M3 container tone) */
 .top-tab-white {
   position: relative;
-  color: #0A2E6F !important;
+  color: #1F2937 !important;
   font-weight: 700;
   padding: 10px 32px;
   margin-top: -8px;
@@ -219,7 +219,7 @@
 }
 
 .nav-cta:hover {
-  background: #0A2E6F !important;
+  background: #1F2937 !important;
   color: white !important;
   box-shadow: var(--md-sys-elevation-2) !important;
 }

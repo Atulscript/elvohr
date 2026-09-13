@@ -41,7 +41,7 @@ const Services = () => {
     <section id="services" className="section services-section">
       <div className="container">
         <div className="section-header text-center">
-          <h2>Our Services</h2>
+          <h2>Our <span className="text-accent">Services</span></h2>
           <p className="subtitle">
             Comprehensive HR solutions tailored to your unique business needs.
           </p>

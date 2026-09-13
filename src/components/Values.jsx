@@ -15,7 +15,7 @@ const Values = () => {
     <section className="section values-section">
       <div className="container">
         <div className="section-header text-center">
-          <h2>Our Core Values</h2>
+          <h2>Our Core <span className="text-accent">Values</span></h2>
         </div>
         
         <div className="values-grid">

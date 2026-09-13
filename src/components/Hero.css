@@ -138,13 +138,13 @@
 
 .stat-item h3 {
   font-size: 2.2rem;
-  color: #0A2E6F;
+  color: #0B5ED7;
   margin-bottom: 2px;
   line-height: 1.1;
 }
 
 .stat-item p {
-  color: var(--text-muted);
+  color: #1F2937;
   font-weight: 600;
   font-size: 1rem;
   text-transform: uppercase;

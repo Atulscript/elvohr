@@ -1,38 +1,39 @@
 :root {
-  /* Brand Color Definitions */
-  --primary-navy-blue: #0A2E6F;
+  /* Brand Color Definitions - Strictly The Two Brand Colors */
+  --primary-navy-blue: #1F2937;
   --accent-blue-v: #0B5ED7;
-  --linkedin-charcoal: #1d2226;
+  --text-dark: #1F2937;
+  --text-accent: #0B5ED7;
+  --linkedin-charcoal: #1F2937;
   --linkedin-bg: #f3f2ef;
 
   /* Material Design 3 Tonal Color Palette */
-  --md-sys-color-primary: var(--primary-navy-blue); 
+  --md-sys-color-primary: #1F2937; 
   --md-sys-color-primary-container: #e8ecf5;
   --md-sys-color-on-primary: #ffffff;
-  --md-sys-color-on-primary-container: var(--primary-navy-blue);
+  --md-sys-color-on-primary-container: #1F2937;
   
-  --md-sys-color-secondary: var(--accent-blue-v); /* Accent Blue highlight as Secondary */
-  --md-sys-color-secondary-container: #f0f4f8;
+  --md-sys-color-secondary: #0B5ED7; /* Accent Blue */
+  --md-sys-color-secondary-container: #EEF5FF;
   --md-sys-color-on-secondary: #ffffff;
-  --md-sys-color-on-secondary-container: var(--accent-blue-v);
+  --md-sys-color-on-secondary-container: #0B5ED7;
   
   --md-sys-color-surface: #ffffff;
-  --md-sys-color-surface-variant: #F4F8FD; /* Light blue tint matching template */
-  --md-sys-color-background: #ffffff; /* Clean white background matching template */
+  --md-sys-color-surface-variant: #F4F8FD;
+  --md-sys-color-background: #ffffff;
   
-  --md-sys-color-on-surface: var(--linkedin-charcoal);
-  --md-sys-color-on-surface-variant: #64748b; /* Slate 500 */
-  --md-sys-color-outline: #cbd5e1; /* Slate 300 */
+  --md-sys-color-on-surface: #1F2937;
+  --md-sys-color-on-surface-variant: #1F2937;
+  --md-sys-color-outline: #cbd5e1;
   
   /* Backward-compatible aliases for components CSS */
-  --primary: var(--md-sys-color-primary);
-  --secondary: var(--md-sys-color-secondary);
-  --secondary-dark: #0444a4; /* Darker shade of Blue */
+  --primary: #1F2937;
+  --secondary: #0B5ED7;
+  --secondary-dark: #094bb0;
   --bg-light: var(--md-sys-color-background);
   --bg-alt: var(--md-sys-color-surface-variant);
   --bg-main: var(--md-sys-color-surface);
-  --text-dark: var(--md-sys-color-on-surface);
-  --text-muted: var(--md-sys-color-on-surface-variant);
+  --text-muted: #1F2937;
   
   /* Premium Google Fonts (Plus Jakarta Sans + Inter) */
   --font-heading: 'Plus Jakarta Sans', sans-serif;
@@ -62,7 +63,7 @@
 body {
   font-family: var(--font-body);
   background-color: var(--md-sys-color-background);
-  color: var(--md-sys-color-on-surface);
+  color: #1F2937;
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -72,8 +73,13 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 800;
   line-height: 1.25;
-  color: var(--md-sys-color-on-surface); /* Deep Charcoal for professional contrast */
+  color: #1F2937;
   letter-spacing: -0.5px;
+}
+
+/* Global Accent Highlight for Titles and Text */
+.text-accent {
+  color: #0B5ED7 !important;
 }
 
 a {
@@ -134,7 +140,7 @@ a {
 }
 
 .btn-primary:hover {
-  background: #0A2E6F;
+  background: #1F2937;
   color: white;
   box-shadow: 0 4px 12px rgba(11, 94, 215, 0.3);
 }
