@@ -169,13 +169,13 @@ const IndustrySection = () => {
     <section className="section modern-industry-section">
       <div className="container">
         
-        <div className="section-header text-center">
+        <div className="section-header text-center reveal-on-scroll">
           <h2>We know your <span className="text-accent">Industry</span></h2>
           <p className="subtitle">Interactive industry-focused workforce solutions matching elite talent with leading sectors.</p>
         </div>
 
         {/* 1. Horizontal Scrollable Navigation Tab Bar */}
-        <div className="industry-tab-scroller">
+        <div className="industry-tab-scroller reveal-on-scroll stagger-1">
           <div className="industry-tabs-container">
             {industries.map((ind, idx) => (
               <button 
@@ -191,7 +191,7 @@ const IndustrySection = () => {
         </div>
 
         {/* 2. Split Screen Showcase Panel */}
-        <div className="industry-showcase-panel card">
+        <div className="industry-showcase-panel card reveal-on-scroll stagger-2">
           {/* Left Column: Visual Brand Box with dynamic gradients */}
           <div className={`showcase-visual-box ${activeIndustry.colorClass}`}>
             <div className="visual-graphic-glow"></div>

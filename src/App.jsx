@@ -23,10 +23,12 @@ export const AlertContext = createContext(() => {
 
 import { useLocation } from 'react-router-dom';
 import CtaBanner from './components/CtaBanner';
+import useScrollReveal from './hooks/useScrollReveal';
 
 // Sub-component to have access to router location context
 function AppContent() {
   const location = useLocation();
+  useScrollReveal([location.pathname]);
   
   // Hide CTA banner on Contact, Admin, and Legal/Compliance pages
   const hideCta = ['/contact', '/privacy', '/terms', '/cookies', '/portal-admin'].includes(location.pathname);

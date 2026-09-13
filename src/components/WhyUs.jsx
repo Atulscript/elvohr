@@ -14,7 +14,7 @@ const WhyUs = () => {
     <section className="section why-us-section">
       <div className="container">
         <div className="why-us-content">
-          <div className="why-us-text">
+          <div className="why-us-text reveal-on-scroll">
             <div className="section-header text-left">
               <h2>Why ELVO <span className="text-accent">HR</span></h2>
             </div>
@@ -30,7 +30,7 @@ const WhyUs = () => {
             
             <ul className="why-us-list">
               {points.map((point, index) => (
-                <li key={index}>
+                <li key={index} className={`reveal-on-scroll stagger-${index + 1}`}>
                   <CheckCircle className="check-icon" size={24} />
                   <span>{point}</span>
                 </li>
@@ -38,7 +38,7 @@ const WhyUs = () => {
             </ul>
           </div>
           
-          <div className="why-us-image-container">
+          <div className="why-us-image-container reveal-on-scroll stagger-2">
             <img src={`${import.meta.env.BASE_URL}why-us.jpg`} alt="Partner with ELVO HR" className="why-us-img" />
           </div>
         </div>

@@ -17,6 +17,7 @@
   clip-path: ellipse(85% 100% at 100% 0%);
   z-index: 0;
   pointer-events: none;
+  animation: pulseGlow 8s ease-in-out infinite alternate;
 }
 
 .hero-grid-split {
@@ -72,6 +73,13 @@
   height: auto;
   border-radius: 28px;
   box-shadow: 0px 20px 40px rgba(11, 94, 215, 0.08);
+  animation: floatSlow 5s ease-in-out infinite;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-creative-image:hover {
+  transform: scale(1.02) translateY(-4px);
+  box-shadow: 0px 28px 50px rgba(11, 94, 215, 0.14);
 }
 
 .hero-stats {

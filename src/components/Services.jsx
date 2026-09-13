@@ -40,7 +40,7 @@ const Services = () => {
   return (
     <section id="services" className="section services-section">
       <div className="container">
-        <div className="section-header text-center">
+        <div className="section-header text-center reveal-on-scroll">
           <h2>Our <span className="text-accent">Services</span></h2>
           <p className="subtitle">
             Comprehensive HR solutions tailored to your unique business needs.
@@ -49,7 +49,7 @@ const Services = () => {
 
         <div className="services-grid">
           {services.map((service, index) => (
-            <div key={index} className="service-card card">
+            <div key={index} className={`service-card card reveal-on-scroll stagger-${(index % 6) + 1}`}>
               <div className="service-icon">{service.icon}</div>
               <h3>{service.title}</h3>
               <p>{service.description}</p>

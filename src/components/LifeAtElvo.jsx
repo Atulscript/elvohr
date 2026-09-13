@@ -12,7 +12,7 @@ const LifeAtElvo = () => {
   return (
     <section id="life" className="section life-section">
       <div className="container">
-        <div className="section-header text-center">
+        <div className="section-header text-center reveal-on-scroll">
           <h2>Life at ELVO <span className="text-accent">HR</span></h2>
           <p className="subtitle">
             Culture, Celebrations, and the People who make it happen.
@@ -21,7 +21,7 @@ const LifeAtElvo = () => {
 
         <div className="gallery-grid">
           {galleryItems.map((item, index) => (
-            <div key={index} className={`gallery-item item-${index + 1}`}>
+            <div key={index} className={`gallery-item item-${index + 1} reveal-on-scroll stagger-${index + 1}`}>
               <img src={item.image} alt={item.title} className="gallery-img" />
               <div className="gallery-overlay">
                 <span className="gallery-title">{item.title}</span>

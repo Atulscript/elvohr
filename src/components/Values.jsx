@@ -14,13 +14,13 @@ const Values = () => {
   return (
     <section className="section values-section">
       <div className="container">
-        <div className="section-header text-center">
+        <div className="section-header text-center reveal-on-scroll">
           <h2>Our Core <span className="text-accent">Values</span></h2>
         </div>
         
         <div className="values-grid">
           {values.map((value, index) => (
-            <div key={index} className="value-item card">
+            <div key={index} className={`value-item card reveal-on-scroll stagger-${(index % 6) + 1}`}>
               <h3 className="value-title">{value.title}</h3>
               <p>{value.desc}</p>
             </div>

@@ -146,7 +146,7 @@ const Careers = ({ initialJobId }) => {
       <div className="container">
         
         {/* Header */}
-        <div className="section-header text-center">
+        <div className="section-header text-center reveal-on-scroll">
           <div className="careers-header-badge">
             <Sparkles size={16} /> Verified Career Opportunities
           </div>
@@ -157,7 +157,7 @@ const Careers = ({ initialJobId }) => {
         </div>
 
         {/* Search and Filter Box */}
-        <div className="careers-search-card card">
+        <div className="careers-search-card card reveal-on-scroll stagger-1">
           <div className="search-bar-wrap">
             <div className="search-input-box">
               <Search size={20} className="search-icon" />
@@ -377,7 +377,7 @@ const Careers = ({ initialJobId }) => {
         )}
 
         {/* General Resume Drop Box */}
-        <div className="open-application-card card">
+        <div className="open-application-card card reveal-on-scroll stagger-1">
           <div className="open-app-content">
             <div className="open-app-icon-wrap">
               <Upload size={32} className="open-app-icon" />
@@ -398,7 +398,7 @@ const Careers = ({ initialJobId }) => {
         </div>
 
         {/* Industry and Opportunity Highlights */}
-        <div className="careers-grid">
+        <div className="careers-grid reveal-on-scroll stagger-2">
           <div className="careers-list-box card">
             <h3>Find Opportunities Across <span className="text-accent">Industries</span></h3>
             <ul className="pill-list">
