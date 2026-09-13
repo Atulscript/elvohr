@@ -125,7 +125,7 @@ textarea:focus:not(:focus-visible) {
   padding: 10px 24px;
   font-family: var(--font-heading);
   font-weight: 600;
-  border-radius: var(--md-sys-shape-corner-full);
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   border: 2px solid transparent;

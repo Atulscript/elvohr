@@ -209,7 +209,7 @@
 .nav-cta {
   background: #0B5ED7 !important;
   color: #FFFFFF !important;
-  border-radius: var(--md-sys-shape-corner-full) !important; /* capsule */
+  border-radius: 8px !important;
   padding: 10px 24px !important;
   font-weight: 600 !important;
   box-shadow: var(--md-sys-elevation-1) !important;
